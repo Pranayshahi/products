@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ═══ Homepage ═══ -->
+  <url>
+    <loc>https://calctools.in/</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/"/>
+  </url>
+
+  <!-- ═══ EMI Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/emi-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/emi-calculator"/>
+  </url>
+
+  <!-- ═══ GST Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/gst-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/gst-calculator"/>
+  </url>
+
+  <!-- ═══ Age Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/age-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/age-calculator"/>
+  </url>
+
+  <!-- ═══ Percentage Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/percentage-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/percentage-calculator"/>
+  </url>
+
+  <!-- ═══ SIP Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/sip-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/sip-calculator"/>
+  </url>
+
+  <!-- ═══ CGPA Calculator ═══ -->
+  <url>
+    <loc>https://calctools.in/cgpa-calculator</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/cgpa-calculator"/>
+  </url>
+
+</urlset>

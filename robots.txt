@@ -1,0 +1,12 @@
+# CalcTools.in — robots.txt
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+
+# Point to sitemap
+Sitemap: https://calctools.in/sitemap.xml
+
+# Disallow any future admin/private paths
+Disallow: /admin/
+Disallow: /private/

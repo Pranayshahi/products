@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Calculator — Loan Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #161a23;
+    --card: #1c2130;
+    --border: rgba(255,255,255,0.07);
+    --accent: #f0b429;
+    --accent2: #3ecf8e;
+    --text: #eef0f6;
+    --muted: #7a8099;
+    --danger: #f87171;
+    --track: rgba(255,255,255,0.08);
+    --thumb: #f0b429;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Background grid */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow blob */
+  body::after {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(240,180,41,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  header {
+    margin-bottom: 48px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-mark svg { width: 20px; height: 20px; }
+
+  .logo-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: -0.3px;
+  }
+
+  .logo-text span { color: var(--accent); }
+
+  .header-badge {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: var(--surface);
+    margin-top: 6px;
+  }
+
+  .hero {
+    margin-bottom: 40px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  @media (max-width: 680px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+  }
+
+  .card-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .field { margin-bottom: 28px; }
+  .field:last-child { margin-bottom: 0; }
+
+  .field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 14px;
+  }
+
+  .field-name {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .field-value {
+    font-size: 22px;
+    font-family: 'DM Serif Display', serif;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+
+  .field-value .unit {
+    font-size: 13px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 2px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--track);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--accent);
+    transition: transform 0.15s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 3px solid var(--bg);
+  }
+
+  .range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .range-labels span {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* Result card */
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .emi-display {
+    text-align: center;
+    padding: 28px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+
+  .emi-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .emi-amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 7vw, 52px);
+    color: var(--accent);
+    letter-spacing: -2px;
+    line-height: 1;
+    transition: all 0.3s ease;
+  }
+
+  .emi-month {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .breakdown-key {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .breakdown-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .breakdown-val {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  /* Donut chart */
+  .donut-wrap {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 20px;
+    position: relative;
+  }
+
+  .donut-wrap svg { overflow: visible; }
+
+  .donut-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .donut-center-label {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .donut-center-pct {
+    font-size: 18px;
+    font-family: 'DM Serif Display', serif;
+    color: var(--text);
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    height: 6px;
+    background: var(--track);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  /* Schedule toggle */
+  .schedule-btn {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+
+  .schedule-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Schedule table */
+  .schedule-wrap {
+    margin-top: 20px;
+    display: none;
+  }
+
+  .schedule-wrap.open { display: block; }
+
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .schedule-table th {
+    text-align: left;
+    padding: 8px 6px;
+    color: var(--muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .schedule-table td {
+    padding: 8px 6px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .schedule-table tr:last-child td { border-bottom: none; }
+
+  .schedule-table td.interest-col { color: var(--danger); }
+  .schedule-table td.principal-col { color: var(--accent2); }
+
+  .schedule-scroll {
+    max-height: 280px;
+    overflow-y: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  /* Footer */
+  .tips {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+  }
+
+  .tip-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+  }
+
+  .tip-icon {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .tip-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .tip-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* Animate in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card, .result-card {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  .result-card { animation-delay: 0.1s; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 20 20" fill="none">
+          <path d="M4 16L4 8M8 16V5M12 16V10M16 16V3" stroke="#0d0f14" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Calc<span>Tools</span>.in</div>
+    </div>
+    <div class="header-badge">Free · No signup · Instant results</div>
+  </header>
+
+  <div class="hero">
+    <h1>EMI <em>Calculator</em><br>for India</h1>
+    <p>Calculate your monthly EMI for home loans, car loans, and personal loans instantly. Plan smarter, borrow better.</p>
+  </div>
+
+  <div class="grid">
+    <!-- Inputs -->
+    <div class="card">
+      <div class="card-label">Loan details</div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Loan amount</span>
+          <span class="field-value" id="loanDisplay">₹10,00,000 <span class="unit"></span></span>
+        </div>
+        <input type="range" id="loanSlider" min="50000" max="10000000" step="50000" value="1000000">
+        <div class="range-labels"><span>₹50K</span><span>₹1 Cr</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Interest rate</span>
+          <span class="field-value" id="rateDisplay">8.5 <span class="unit">% p.a.</span></span>
+        </div>
+        <input type="range" id="rateSlider" min="5" max="24" step="0.1" value="8.5">
+        <div class="range-labels"><span>5%</span><span>24%</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Loan tenure</span>
+          <span class="field-value" id="tenureDisplay">20 <span class="unit">years</span></span>
+        </div>
+        <input type="range" id="tenureSlider" min="1" max="30" step="1" value="20">
+        <div class="range-labels"><span>1 yr</span><span>30 yrs</span></div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-card">
+      <div class="card-label">Your EMI</div>
+
+      <div class="emi-display">
+        <div class="emi-label">Monthly payment</div>
+        <div class="emi-amount" id="emiAmount">₹0</div>
+        <div class="emi-month">every month for <span id="tenureMonths">240</span> months</div>
+      </div>
+
+      <!-- Donut -->
+      <div class="donut-wrap">
+        <svg id="donutSvg" width="140" height="140" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="52" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="16"/>
+          <circle id="principalArc" cx="70" cy="70" r="52" fill="none"
+            stroke="#3ecf8e" stroke-width="16"
+            stroke-dasharray="326.7" stroke-dashoffset="0"
+            stroke-linecap="round" transform="rotate(-90 70 70)"
+            style="transition: stroke-dashoffset 0.4s ease"/>
+          <circle id="interestArc" cx="70" cy="70" r="52" fill="none"
+            stroke="#f0b429" stroke-width="16"
+            stroke-dasharray="326.7" stroke-dashoffset="326.7"
+            stroke-linecap="round" transform="rotate(-90 70 70)"
+            style="transition: stroke-dashoffset 0.4s ease"/>
+        </svg>
+        <div class="donut-center">
+          <div class="donut-center-label">Interest</div>
+          <div class="donut-center-pct" id="interestPct">0%</div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="breakdown-key">
+            <span class="breakdown-dot" style="background:#3ecf8e"></span>
+            Principal amount
+          </span>
+          <span class="breakdown-val" id="principal">₹0</span>
+        </div>
+        <div style="padding: 0 0 0 16px;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="principalBar" style="background:#3ecf8e; width:50%"></div>
+          </div>
+        </div>
+
+        <div class="breakdown-row">
+          <span class="breakdown-key">
+            <span class="breakdown-dot" style="background:#f0b429"></span>
+            Total interest
+          </span>
+          <span class="breakdown-val" id="interest">₹0</span>
+        </div>
+        <div style="padding: 0 0 0 16px;">
+          <div class="progress-bar">
+            <div class="progress-fill" id="interestBar" style="background:#f0b429; width:50%"></div>
+          </div>
+        </div>
+
+        <div class="breakdown-row" style="border-top: 1px solid var(--border); padding-top: 14px; margin-top: 2px;">
+          <span class="breakdown-key" style="color: var(--text); font-weight: 500;">Total payable</span>
+          <span class="breakdown-val" id="total" style="color: var(--accent);">₹0</span>
+        </div>
+      </div>
+
+      <button class="schedule-btn" id="scheduleBtn" onclick="toggleSchedule()">
+        View amortization schedule ↓
+      </button>
+
+      <div class="schedule-wrap" id="scheduleWrap">
+        <div class="schedule-scroll">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>EMI</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody id="scheduleBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="tips">
+    <div class="tip-card">
+      <div class="tip-icon">💡</div>
+      <div class="tip-title">Lower rate = big savings</div>
+      <div class="tip-desc">Even 0.5% reduction in interest rate can save you lakhs over a 20-year loan.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📅</div>
+      <div class="tip-title">Shorter tenure saves interest</div>
+      <div class="tip-desc">Reducing tenure from 20 to 15 years can cut your total interest by 30–40%.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🏦</div>
+      <div class="tip-title">Compare banks first</div>
+      <div class="tip-desc">SBI, HDFC, ICICI all offer different rates. Always compare before applying.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔁</div>
+      <div class="tip-title">Prepay when possible</div>
+      <div class="tip-desc">Even one extra EMI per year significantly reduces your outstanding principal.</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const loanSlider   = document.getElementById('loanSlider');
+  const rateSlider   = document.getElementById('rateSlider');
+  const tenureSlider = document.getElementById('tenureSlider');
+
+  function fmt(n) {
+    if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + ' Cr';
+    if (n >= 100000)   return '₹' + (n/100000).toFixed(2) + ' L';
+    return '₹' + n.toLocaleString('en-IN');
+  }
+
+  function fmtFull(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  function calcEMI(P, R, N) {
+    const r = R / 12 / 100;
+    if (r === 0) return P / N;
+    return P * r * Math.pow(1 + r, N) / (Math.pow(1 + r, N) - 1);
+  }
+
+  function updateSliderFill(slider) {
+    const min = +slider.min, max = +slider.max, val = +slider.value;
+    const pct = ((val - min) / (max - min)) * 100;
+    slider.style.background = `linear-gradient(to right, var(--accent) ${pct}%, var(--track) ${pct}%)`;
+  }
+
+  function buildSchedule(P, R, N, emi) {
+    const r = R / 12 / 100;
+    const tbody = document.getElementById('scheduleBody');
+    tbody.innerHTML = '';
+    let balance = P;
+    for (let i = 1; i <= N; i++) {
+      const interest = balance * r;
+      const principal = emi - interest;
+      balance -= principal;
+      if (balance < 0) balance = 0;
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${i}</td>
+        <td>${fmtFull(emi)}</td>
+        <td class="principal-col">${fmtFull(principal)}</td>
+        <td class="interest-col">${fmtFull(interest)}</td>
+        <td>${fmtFull(Math.max(0, balance))}</td>
+      `;
+      tbody.appendChild(tr);
+    }
+  }
+
+  function update() {
+    const P = +loanSlider.value;
+    const R = +rateSlider.value;
+    const N = +tenureSlider.value * 12;
+
+    // Update displays
+    document.getElementById('loanDisplay').innerHTML   = fmt(P);
+    document.getElementById('rateDisplay').innerHTML   = R.toFixed(1) + ' <span class="unit">% p.a.</span>';
+    document.getElementById('tenureDisplay').innerHTML = tenureSlider.value + ' <span class="unit">years</span>';
+    document.getElementById('tenureMonths').textContent = N;
+
+    // Update slider fills
+    updateSliderFill(loanSlider);
+    updateSliderFill(rateSlider);
+    updateSliderFill(tenureSlider);
+
+    // Calculate
+    const emi = calcEMI(P, R, N);
+    const totalPayable = emi * N;
+    const totalInterest = totalPayable - P;
+    const interestPct = Math.round((totalInterest / totalPayable) * 100);
+    const principalPct = 100 - interestPct;
+
+    // Update results
+    document.getElementById('emiAmount').textContent = fmtFull(emi);
+    document.getElementById('principal').textContent = fmtFull(P);
+    document.getElementById('interest').textContent  = fmtFull(totalInterest);
+    document.getElementById('total').textContent     = fmtFull(totalPayable);
+    document.getElementById('interestPct').textContent = interestPct + '%';
+
+    // Progress bars
+    document.getElementById('principalBar').style.width = principalPct + '%';
+    document.getElementById('interestBar').style.width  = interestPct + '%';
+
+    // Donut chart (circumference = 2π×52 ≈ 326.7)
+    const C = 326.7;
+    const principalDash = (principalPct / 100) * C;
+    const interestDash  = (interestPct / 100) * C;
+    const interestOffset = C - principalDash;
+
+    document.getElementById('principalArc').setAttribute('stroke-dashoffset', C - principalDash);
+    document.getElementById('interestArc').setAttribute('stroke-dashoffset', C - interestDash);
+
+    // Rebuild schedule if open
+    if (document.getElementById('scheduleWrap').classList.contains('open')) {
+      buildSchedule(P, R, N, emi);
+    }
+  }
+
+  function toggleSchedule() {
+    const wrap = document.getElementById('scheduleWrap');
+    const btn  = document.getElementById('scheduleBtn');
+    wrap.classList.toggle('open');
+    if (wrap.classList.contains('open')) {
+      const P = +loanSlider.value;
+      const R = +rateSlider.value;
+      const N = +tenureSlider.value * 12;
+      buildSchedule(P, R, N, calcEMI(P, R, N));
+      btn.textContent = 'Hide amortization schedule ↑';
+    } else {
+      btn.textContent = 'View amortization schedule ↓';
+    }
+  }
+
+  loanSlider.addEventListener('input', update);
+  rateSlider.addEventListener('input', update);
+  tenureSlider.addEventListener('input', update);
+
+  // Initial render
+  update();
+</script>
+</body>
+</html>

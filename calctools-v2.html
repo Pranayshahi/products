@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ═══ PRIMARY SEO ═══ -->
+<title>CalcTools.in — Free EMI, GST, Age, SIP & CGPA Calculators for India</title>
+<meta name="description" content="Free online calculators for India — EMI calculator, GST calculator, Age calculator, SIP calculator, CGPA calculator & percentage calculator. Instant results. No signup needed.">
+<meta name="keywords" content="EMI calculator, GST calculator India, age calculator, SIP calculator, CGPA calculator, percentage calculator, loan calculator India, free online calculator">
+<meta name="author" content="CalcTools.in">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://calctools.in/">
+
+<!-- ═══ OPEN GRAPH (Facebook / WhatsApp) ═══ -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://calctools.in/">
+<meta property="og:title"       content="CalcTools.in — Free Online Calculators for India">
+<meta property="og:description" content="EMI, GST, Age, SIP, CGPA & Percentage calculators. Free, instant, no signup. Built for India.">
+<meta property="og:image"       content="https://calctools.in/og-image.png">
+<meta property="og:locale"      content="en_IN">
+<meta property="og:site_name"   content="CalcTools.in">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:url"         content="https://calctools.in/">
+<meta name="twitter:title"       content="CalcTools.in — Free Calculators for India">
+<meta name="twitter:description" content="EMI, GST, Age, SIP, CGPA & Percentage calculators. Free & instant.">
+<meta name="twitter:image"       content="https://calctools.in/og-image.png">
+
+<!-- ═══ SCHEMA.ORG STRUCTURED DATA ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://calctools.in/#website",
+      "url": "https://calctools.in/",
+      "name": "CalcTools.in",
+      "description": "Free online calculators for India",
+      "inLanguage": "en-IN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://calctools.in/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://calctools.in/#app",
+      "name": "CalcTools.in",
+      "url": "https://calctools.in/",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "featureList": ["EMI Calculator","GST Calculator","Age Calculator","SIP Calculator","CGPA Calculator","Percentage Calculator"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is EMI calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EMI = P × r × (1+r)^n / ((1+r)^n - 1), where P is principal, r is monthly interest rate, and n is number of months."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate GST in India?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To add GST: Total = Amount + (Amount × GST%). To remove GST: Base = Total × 100 / (100 + GST%). GST rates in India are 5%, 12%, 18%, and 28%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is CGPA calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CGPA = Sum of (Grade Points × Credits) / Total Credits. To convert CGPA to percentage: Percentage = CGPA × 9.5 (CBSE formula)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ═══ FAVICON (inline SVG) ═══ -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23f0b429'/><path d='M7 26V14M12 26V9M17 26V17M22 26V6' stroke='%230d0f14' stroke-width='3.5' stroke-linecap='round'/></svg>">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0d0f14;
+  --surface: #161a23;
+  --card: #1c2130;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --accent: #f0b429;
+  --accent2: #3ecf8e;
+  --accent3: #60a5fa;
+  --accent4: #f472b6;
+  --accent5: #a78bfa;
+  --text: #eef0f6;
+  --muted: #7a8099;
+  --danger: #f87171;
+  --track: rgba(255,255,255,0.08);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13,15,20,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 32px; height: 32px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.logo-mark svg { width: 18px; height: 18px; }
+
+.logo-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.logo-text span { color: var(--accent); }
+
+.nav-tools {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-tools::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover { color: var(--text); background: var(--surface); }
+.nav-btn.active { color: var(--text); background: var(--card); }
+
+/* ─── PAGE WRAPPER ─── */
+.page {
+  position: relative;
+  z-index: 1;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* ─── HOME ─── */
+.home-hero {
+  text-align: center;
+  padding: 48px 0 56px;
+}
+
+.home-hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(36px, 7vw, 62px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+
+.home-hero h1 em { font-style: italic; color: var(--accent); }
+
+.home-hero p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 16px;
+}
+
+.tool-tile {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: all 0.22s;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.22s;
+}
+
+.tool-tile:hover { border-color: var(--border2); transform: translateY(-2px); }
+.tool-tile:hover::before { opacity: 1; }
+
+.tile-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
+.tile-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+
+.tile-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.tile-arrow {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 16px;
+  color: var(--muted);
+  transition: transform 0.2s, color 0.2s;
+}
+
+.tool-tile:hover .tile-arrow { transform: translate(2px,-2px); color: var(--text); }
+
+/* ─── TOOL PAGES ─── */
+.tool-page { display: none; animation: fadeUp 0.35s ease forwards; }
+.tool-page.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.tool-header-icon {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+}
+
+.tool-header-text h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.tool-header-text p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: color 0.2s;
+}
+
+.back-btn:hover { color: var(--text); }
+
+/* ─── SHARED CARD STYLES ─── */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 640px) { .calc-grid { grid-template-columns: 1fr; } }
+
+.c-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.c-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 22px;
+  display: flex; align-items: center; gap: 8px;
+}
+
+.c-card-label::before {
+  content: '';
+  display: block;
+  width: 18px; height: 2px;
+  border-radius: 1px;
+}
+
+.field { margin-bottom: 26px; }
+.field:last-child { margin-bottom: 0; }
+
+.field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.field-name { font-size: 13px; color: var(--muted); }
+
+.field-value {
+  font-size: 22px;
+  font-family: 'DM Serif Display', serif;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+
+.field-value .unit {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  margin-left: 2px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--track);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 1px var(--accent);
+  transition: transform 0.15s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+}
+
+.range-labels span { font-size: 11px; color: var(--muted); }
+
+/* Result card */
+.result-c {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.big-result {
+  text-align: center;
+  padding: 22px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+
+.big-result-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.big-result-value {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(32px, 7vw, 50px);
+  letter-spacing: -2px;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+.big-result-sub { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+.breakdown { display: flex; flex-direction: column; gap: 12px; }
+
+.br-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.br-row:last-child { border-bottom: none; }
+
+.br-key {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 8px;
+}
+
+.br-dot { width: 8px; height: 8px; border-radius: 50%; }
+.br-val { font-size: 14px; font-weight: 500; color: var(--text); }
+.br-val.accent  { color: var(--accent); }
+.br-val.accent2 { color: var(--accent2); }
+.br-val.accent3 { color: var(--accent3); }
+.br-val.accent4 { color: var(--accent4); }
+.br-val.accent5 { color: var(--accent5); }
+
+/* Input fields for date/number */
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-top: 8px;
+}
+
+.input-field:focus { border-color: var(--border2); }
+.input-field::-webkit-calendar-picker-indicator { filter: invert(1) opacity(0.4); }
+
+/* Toggle buttons */
+.toggle-group {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.toggle-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-btn.active, .toggle-btn:hover {
+  background: var(--accent);
+  color: #000;
+  border-color: var(--accent);
+}
+
+/* Donut */
+.donut-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0 18px;
+  position: relative;
+}
+
+.donut-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.donut-center-label { font-size: 11px; color: var(--muted); }
+.donut-center-pct   { font-size: 17px; font-family: 'DM Serif Display', serif; color: var(--text); }
+
+/* Schedule */
+.schedule-btn {
+  width: 100%;
+  padding: 11px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 6px;
+}
+
+.schedule-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.schedule-scroll {
+  max-height: 260px;
+  overflow-y: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.schedule-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.schedule-table th {
+  text-align: left; padding: 8px 8px;
+  color: var(--muted); font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-table td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+.schedule-table tr:last-child td { border-bottom: none; }
+.c-int { color: var(--danger); }
+.c-pri { color: var(--accent2); }
+
+/* Age calc specifics */
+.age-big {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.age-unit-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.age-unit-val {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  letter-spacing: -1px;
+  margin-bottom: 4px;
+}
+
+.age-unit-lbl { font-size: 12px; color: var(--muted); }
+
+/* Percentage modes */
+.pct-modes {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.pct-mode-btn {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pct-mode-btn.active { background: var(--accent); color: #000; border-color: var(--accent); }
+
+.pct-panel { display: none; }
+.pct-panel.active { display: block; }
+
+.number-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.num-inp {
+  flex: 1;
+  min-width: 100px;
+  padding: 11px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  outline: none;
+  transition: border-color 0.2s;
+  text-align: center;
+}
+
+.num-inp:focus { border-color: var(--border2); }
+.num-inp::placeholder { color: var(--muted); font-family: 'DM Sans', sans-serif; font-size: 14px; }
+
+.num-op {
+  font-size: 18px;
+  color: var(--muted);
+  font-weight: 300;
+  padding: 0 2px;
+}
+
+.pct-result-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.pct-result-label { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+
+.pct-result-value {
+  font-family: 'DM Serif Display', serif;
+  font-size: 44px;
+  letter-spacing: -2px;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+/* GST */
+.gst-rate-group {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.gst-rate-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gst-rate-btn.active { background: var(--accent3); color: #000; border-color: var(--accent3); }
+
+/* CGPA styles */
+.cgpa-accent { color: #fb923c; }
+.subject-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 36px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.sub-inp {
+  padding: 9px 11px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.sub-inp:focus { border-color: var(--border2); }
+.sub-inp::placeholder { color: var(--muted); }
+.del-btn {
+  width: 32px; height: 32px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.del-btn:hover { border-color: var(--danger); color: var(--danger); }
+.add-subject-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px dashed var(--border2);
+  border-radius: 10px;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 6px;
+}
+.add-subject-btn:hover { border-color: #fb923c; color: #fb923c; }
+.grade-ref {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-top: 12px;
+}
+.grade-chip {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 6px;
+  text-align: center;
+  font-size: 11px;
+}
+.grade-chip-letter { font-weight: 500; color: var(--text); font-size: 13px; }
+.grade-chip-pts    { color: var(--muted); }
+.cgpa-big-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(52px, 12vw, 80px);
+  letter-spacing: -3px;
+  line-height: 1;
+  color: #fb923c;
+  transition: all 0.3s;
+}
+.col-headers {
+  display: grid;
+  grid-template-columns: 1fr 80px 90px 36px;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.col-hdr { font-size: 11px; color: var(--muted); padding: 0 2px; }
+  .tool-grid { grid-template-columns: 1fr 1fr; }
+  .age-big   { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#" onclick="showHome()">
+    <div class="logo-mark">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path d="M4 16V8M8 16V5M12 16V10M16 16V3" stroke="#0d0f14" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">Calc<span>Tools</span>.in</div>
+  </a>
+  <div class="nav-tools">
+    <button class="nav-btn" onclick="showTool('emi')">EMI Calc</button>
+    <button class="nav-btn" onclick="showTool('gst')">GST Calc</button>
+    <button class="nav-btn" onclick="showTool('age')">Age Calc</button>
+    <button class="nav-btn" onclick="showTool('pct')">Percentage</button>
+    <button class="nav-btn" onclick="showTool('sip')">SIP Calc</button>
+    <button class="nav-btn" onclick="showTool('cgpa')">CGPA Calc</button>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- ══════════ HOME ══════════ -->
+<div id="home" class="tool-page active">
+  <div class="home-hero">
+    <h1>Free <em>Calculators</em><br>for India</h1>
+    <p>Instant, accurate tools for loans, taxes, investments and everyday math. No ads in the way, no signup needed.</p>
+  </div>
+
+  <div class="tool-grid">
+    <div class="tool-tile" onclick="showTool('emi')" style="border-top: 2px solid var(--accent);">
+      <div class="tile-icon" style="background:rgba(240,180,41,0.1);">🏦</div>
+      <div class="tile-name">EMI Calculator</div>
+      <div class="tile-desc">Home, car & personal loan EMI with full amortization schedule</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+    <div class="tool-tile" onclick="showTool('gst')" style="border-top: 2px solid var(--accent3);">
+      <div class="tile-icon" style="background:rgba(96,165,250,0.1);">🧾</div>
+      <div class="tile-name">GST Calculator</div>
+      <div class="tile-desc">Add or remove GST at 5%, 12%, 18% or 28% in one click</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+    <div class="tool-tile" onclick="showTool('age')" style="border-top: 2px solid var(--accent4);">
+      <div class="tile-icon" style="background:rgba(244,114,182,0.1);">🎂</div>
+      <div class="tile-name">Age Calculator</div>
+      <div class="tile-desc">Exact age in years, months, days, hours — with next birthday countdown</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+    <div class="tool-tile" onclick="showTool('pct')" style="border-top: 2px solid var(--accent2);">
+      <div class="tile-icon" style="background:rgba(62,207,142,0.1);">%</div>
+      <div class="tile-name">Percentage Calc</div>
+      <div class="tile-desc">Find %, increase/decrease, difference between two numbers</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+    <div class="tool-tile" onclick="showTool('sip')" style="border-top: 2px solid var(--accent5);">
+      <div class="tile-icon" style="background:rgba(167,139,250,0.1);">📈</div>
+      <div class="tile-name">SIP Calculator</div>
+      <div class="tile-desc">Monthly SIP returns, total invested & wealth gained over time</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+    <div class="tool-tile" onclick="showTool('cgpa')" style="border-top: 2px solid #fb923c;">
+      <div class="tile-icon" style="background:rgba(251,146,60,0.1);">🎓</div>
+      <div class="tile-name">CGPA Calculator</div>
+      <div class="tile-desc">Convert CGPA to percentage, add subjects with credits & grade points</div>
+      <span class="tile-arrow">↗</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ EMI CALCULATOR ══════════ -->
+<div id="emi" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(240,180,41,0.12);">🏦</div>
+    <div class="tool-header-text">
+      <h2>EMI Calculator</h2>
+      <p>Calculate your monthly loan instalments instantly</p>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <div class="c-card">
+      <div class="c-card-label" style="--bar:#f0b429;">Loan details</div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Loan amount</span>
+          <span class="field-value" id="emi-loanDisp">₹10,00,000</span>
+        </div>
+        <input type="range" id="emi-loan" min="50000" max="10000000" step="50000" value="1000000" oninput="calcEMI()">
+        <div class="range-labels"><span>₹50K</span><span>₹1 Cr</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Interest rate</span>
+          <span class="field-value" id="emi-rateDisp">8.5 <span class="unit">% p.a.</span></span>
+        </div>
+        <input type="range" id="emi-rate" min="5" max="24" step="0.1" value="8.5" oninput="calcEMI()">
+        <div class="range-labels"><span>5%</span><span>24%</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Loan tenure</span>
+          <span class="field-value" id="emi-tenureDisp">20 <span class="unit">years</span></span>
+        </div>
+        <input type="range" id="emi-tenure" min="1" max="30" step="1" value="20" oninput="calcEMI()">
+        <div class="range-labels"><span>1 yr</span><span>30 yrs</span></div>
+      </div>
+    </div>
+
+    <div class="result-c">
+      <div class="c-card-label">Your EMI</div>
+      <div class="big-result">
+        <div class="big-result-label">Monthly payment</div>
+        <div class="big-result-value" id="emi-result" style="color:var(--accent);">₹0</div>
+        <div class="big-result-sub">every month for <span id="emi-months">240</span> months</div>
+      </div>
+
+      <div class="donut-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14"/>
+          <circle id="emi-priArc" cx="65" cy="65" r="48" fill="none" stroke="var(--accent2)" stroke-width="14"
+            stroke-dasharray="301.6" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 65 65)"
+            style="transition:stroke-dashoffset .4s ease"/>
+          <circle id="emi-intArc" cx="65" cy="65" r="48" fill="none" stroke="var(--accent)" stroke-width="14"
+            stroke-dasharray="301.6" stroke-dashoffset="301.6" stroke-linecap="round" transform="rotate(-90 65 65)"
+            style="transition:stroke-dashoffset .4s ease"/>
+        </svg>
+        <div class="donut-center">
+          <div class="donut-center-label">Interest</div>
+          <div class="donut-center-pct" id="emi-intPct">0%</div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent2)"></span>Principal</span>
+          <span class="br-val accent2" id="emi-principal">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent)"></span>Total interest</span>
+          <span class="br-val accent" id="emi-interest">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key" style="color:var(--text);font-weight:500;">Total payable</span>
+          <span class="br-val accent" id="emi-total">₹0</span>
+        </div>
+      </div>
+
+      <button class="schedule-btn" id="emi-schedBtn" onclick="toggleEmiSchedule()">View amortization schedule ↓</button>
+      <div id="emi-schedWrap" style="display:none;">
+        <div class="schedule-scroll">
+          <table class="schedule-table">
+            <thead><tr><th>#</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+            <tbody id="emi-schedBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ GST CALCULATOR ══════════ -->
+<div id="gst" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(96,165,250,0.12);">🧾</div>
+    <div class="tool-header-text">
+      <h2>GST Calculator</h2>
+      <p>Add or remove GST from any amount instantly</p>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <div class="c-card">
+      <div class="c-card-label">Amount & Rate</div>
+
+      <div class="field">
+        <div class="field-name" style="margin-bottom:8px;">Enter amount (₹)</div>
+        <input type="number" class="input-field" id="gst-amount" placeholder="e.g. 10000" value="10000" oninput="calcGST()">
+      </div>
+
+      <div class="field">
+        <div class="field-name" style="margin-bottom:10px;">GST rate</div>
+        <div class="gst-rate-group">
+          <button class="gst-rate-btn" onclick="setGstRate(5,this)">5%</button>
+          <button class="gst-rate-btn" onclick="setGstRate(12,this)">12%</button>
+          <button class="gst-rate-btn active" onclick="setGstRate(18,this)">18%</button>
+          <button class="gst-rate-btn" onclick="setGstRate(28,this)">28%</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="field-name" style="margin-bottom:10px;">Type</div>
+        <div class="toggle-group">
+          <button class="toggle-btn active" id="gst-add-btn" onclick="setGstType('add')">Add GST</button>
+          <button class="toggle-btn" id="gst-rem-btn" onclick="setGstType('remove')">Remove GST</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-c">
+      <div class="c-card-label">GST breakdown</div>
+
+      <div class="big-result">
+        <div class="big-result-label" id="gst-result-label">Total with GST</div>
+        <div class="big-result-value" id="gst-result" style="color:var(--accent3);">₹0</div>
+        <div class="big-result-sub" id="gst-result-sub">including 18% GST</div>
+      </div>
+
+      <div class="breakdown">
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent2)"></span>Base amount</span>
+          <span class="br-val accent2" id="gst-base">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent3)"></span>GST amount</span>
+          <span class="br-val accent3" id="gst-gstamt">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:rgba(255,255,255,0.2)"></span>CGST (half)</span>
+          <span class="br-val" id="gst-cgst">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:rgba(255,255,255,0.2)"></span>SGST (half)</span>
+          <span class="br-val" id="gst-sgst">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key" style="color:var(--text);font-weight:500;">Total amount</span>
+          <span class="br-val accent3" id="gst-total">₹0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ AGE CALCULATOR ══════════ -->
+<div id="age" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(244,114,182,0.12);">🎂</div>
+    <div class="tool-header-text">
+      <h2>Age Calculator</h2>
+      <p>Find your exact age and next birthday countdown</p>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <div class="c-card">
+      <div class="c-card-label">Enter dates</div>
+
+      <div class="field">
+        <div class="field-name">Date of birth</div>
+        <input type="date" class="input-field" id="age-dob" oninput="calcAge()">
+      </div>
+
+      <div class="field">
+        <div class="field-name">Calculate age on</div>
+        <input type="date" class="input-field" id="age-today" oninput="calcAge()">
+      </div>
+
+      <div class="field" style="margin-top:8px;">
+        <button class="toggle-btn active" style="width:100%;" onclick="resetAgeToday()">Reset to today</button>
+      </div>
+    </div>
+
+    <div class="result-c">
+      <div class="c-card-label">Your age</div>
+
+      <div class="big-result" style="padding:16px 0 16px;">
+        <div class="big-result-label">Exact age</div>
+        <div class="big-result-value" id="age-main" style="color:var(--accent4); font-size:clamp(22px,5vw,38px);">—</div>
+      </div>
+
+      <div class="age-big" id="age-units" style="margin-top:18px;">
+        <div class="age-unit-card">
+          <div class="age-unit-val" style="color:var(--accent4);" id="age-years">—</div>
+          <div class="age-unit-lbl">Years</div>
+        </div>
+        <div class="age-unit-card">
+          <div class="age-unit-val" style="color:var(--accent3);" id="age-months">—</div>
+          <div class="age-unit-lbl">Months</div>
+        </div>
+        <div class="age-unit-card">
+          <div class="age-unit-val" style="color:var(--accent);" id="age-days">—</div>
+          <div class="age-unit-lbl">Days</div>
+        </div>
+      </div>
+
+      <div class="breakdown" style="margin-top:16px;">
+        <div class="br-row">
+          <span class="br-key">Total months</span>
+          <span class="br-val" id="age-totalmonths">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key">Total days</span>
+          <span class="br-val" id="age-totaldays">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key">Total hours</span>
+          <span class="br-val" id="age-totalhours">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key" style="color:var(--accent4);">Next birthday in</span>
+          <span class="br-val accent4" id="age-nextbd">—</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PERCENTAGE CALCULATOR ══════════ -->
+<div id="pct" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(62,207,142,0.12);">%</div>
+    <div class="tool-header-text">
+      <h2>Percentage Calculator</h2>
+      <p>Four types of percentage calculations in one place</p>
+    </div>
+  </div>
+
+  <div class="pct-modes">
+    <button class="pct-mode-btn active" onclick="setPctMode(0,this)">X% of Y</button>
+    <button class="pct-mode-btn" onclick="setPctMode(1,this)">X is what % of Y</button>
+    <button class="pct-mode-btn" onclick="setPctMode(2,this)">% change</button>
+    <button class="pct-mode-btn" onclick="setPctMode(3,this)">% increase / decrease</button>
+  </div>
+
+  <!-- Mode 0: X% of Y -->
+  <div class="pct-panel active" id="pct-0">
+    <div class="c-card" style="margin-bottom:16px;">
+      <div class="c-card-label">What is X% of Y?</div>
+      <div class="number-input-group">
+        <input type="number" class="num-inp" id="p0-x" placeholder="X" value="15" oninput="calcPct0()">
+        <span class="num-op">% of</span>
+        <input type="number" class="num-inp" id="p0-y" placeholder="Y" value="4500" oninput="calcPct0()">
+        <span class="num-op">=</span>
+      </div>
+      <div class="pct-result-box">
+        <div class="pct-result-label">Result</div>
+        <div class="pct-result-value" id="p0-result" style="color:var(--accent2);">675</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode 1: X is what % of Y -->
+  <div class="pct-panel" id="pct-1">
+    <div class="c-card" style="margin-bottom:16px;">
+      <div class="c-card-label">X is what % of Y?</div>
+      <div class="number-input-group">
+        <input type="number" class="num-inp" id="p1-x" placeholder="X" value="45" oninput="calcPct1()">
+        <span class="num-op">is what % of</span>
+        <input type="number" class="num-inp" id="p1-y" placeholder="Y" value="300" oninput="calcPct1()">
+        <span class="num-op">=</span>
+      </div>
+      <div class="pct-result-box">
+        <div class="pct-result-label">Result</div>
+        <div class="pct-result-value" id="p1-result" style="color:var(--accent2);">15%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode 2: % change from X to Y -->
+  <div class="pct-panel" id="pct-2">
+    <div class="c-card" style="margin-bottom:16px;">
+      <div class="c-card-label">Percentage change from X to Y</div>
+      <div class="number-input-group">
+        <input type="number" class="num-inp" id="p2-x" placeholder="From" value="800" oninput="calcPct2()">
+        <span class="num-op">→</span>
+        <input type="number" class="num-inp" id="p2-y" placeholder="To" value="1000" oninput="calcPct2()">
+        <span class="num-op">=</span>
+      </div>
+      <div class="pct-result-box">
+        <div class="pct-result-label">Change</div>
+        <div class="pct-result-value" id="p2-result" style="color:var(--accent2);">+25%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mode 3: increase/decrease by % -->
+  <div class="pct-panel" id="pct-3">
+    <div class="c-card" style="margin-bottom:16px;">
+      <div class="c-card-label">Increase or decrease Y by X%</div>
+      <div class="number-input-group">
+        <input type="number" class="num-inp" id="p3-y" placeholder="Amount" value="5000" oninput="calcPct3()">
+        <div class="toggle-group" style="margin:0;">
+          <button class="toggle-btn active" id="p3-inc" onclick="setP3Mode('inc')">+</button>
+          <button class="toggle-btn" id="p3-dec" onclick="setP3Mode('dec')">−</button>
+        </div>
+        <input type="number" class="num-inp" id="p3-x" placeholder="%" value="20" oninput="calcPct3()">
+        <span class="num-op">%</span>
+      </div>
+      <div class="pct-result-box">
+        <div class="pct-result-label">Result</div>
+        <div class="pct-result-value" id="p3-result" style="color:var(--accent2);">6000</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SIP CALCULATOR ══════════ -->
+<div id="sip" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(167,139,250,0.12);">📈</div>
+    <div class="tool-header-text">
+      <h2>SIP Calculator</h2>
+      <p>Calculate your mutual fund SIP returns over time</p>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <div class="c-card">
+      <div class="c-card-label">Investment details</div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Monthly SIP amount</span>
+          <span class="field-value" id="sip-amtDisp">₹5,000</span>
+        </div>
+        <input type="range" id="sip-amt" min="500" max="200000" step="500" value="5000" oninput="calcSIP()">
+        <div class="range-labels"><span>₹500</span><span>₹2L</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Expected annual return</span>
+          <span class="field-value" id="sip-rateDisp">12 <span class="unit">% p.a.</span></span>
+        </div>
+        <input type="range" id="sip-rate" min="1" max="30" step="0.5" value="12" oninput="calcSIP()">
+        <div class="range-labels"><span>1%</span><span>30%</span></div>
+      </div>
+
+      <div class="field">
+        <div class="field-header">
+          <span class="field-name">Investment period</span>
+          <span class="field-value" id="sip-tenureDisp">10 <span class="unit">years</span></span>
+        </div>
+        <input type="range" id="sip-tenure" min="1" max="40" step="1" value="10" oninput="calcSIP()">
+        <div class="range-labels"><span>1 yr</span><span>40 yrs</span></div>
+      </div>
+    </div>
+
+    <div class="result-c">
+      <div class="c-card-label">Returns</div>
+
+      <div class="big-result">
+        <div class="big-result-label">Total corpus</div>
+        <div class="big-result-value" id="sip-corpus" style="color:var(--accent5);">₹0</div>
+        <div class="big-result-sub" id="sip-sub">after 10 years</div>
+      </div>
+
+      <div class="donut-wrap">
+        <svg width="130" height="130" viewBox="0 0 130 130">
+          <circle cx="65" cy="65" r="48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="14"/>
+          <circle id="sip-invArc" cx="65" cy="65" r="48" fill="none" stroke="var(--accent3)" stroke-width="14"
+            stroke-dasharray="301.6" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 65 65)"
+            style="transition:stroke-dashoffset .4s ease"/>
+          <circle id="sip-gainArc" cx="65" cy="65" r="48" fill="none" stroke="var(--accent5)" stroke-width="14"
+            stroke-dasharray="301.6" stroke-dashoffset="301.6" stroke-linecap="round" transform="rotate(-90 65 65)"
+            style="transition:stroke-dashoffset .4s ease"/>
+        </svg>
+        <div class="donut-center">
+          <div class="donut-center-label">Gain %</div>
+          <div class="donut-center-pct" id="sip-gainPct">0%</div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent3)"></span>Amount invested</span>
+          <span class="br-val accent3" id="sip-invested">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent5)"></span>Wealth gained</span>
+          <span class="br-val accent5" id="sip-gain">₹0</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key" style="color:var(--text);font-weight:500;">Total corpus</span>
+          <span class="br-val accent5" id="sip-total">₹0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ CGPA CALCULATOR ══════════ -->
+<div id="cgpa" class="tool-page">
+  <button class="back-btn" onclick="showHome()">← All tools</button>
+  <div class="tool-header">
+    <div class="tool-header-icon" style="background:rgba(251,146,60,0.12);">🎓</div>
+    <div class="tool-header-text">
+      <h2>CGPA Calculator</h2>
+      <p>Calculate CGPA from subjects and convert to percentage</p>
+    </div>
+  </div>
+
+  <div class="calc-grid">
+    <!-- Subject input card -->
+    <div class="c-card">
+      <div class="c-card-label">Subjects & grades</div>
+
+      <div class="col-headers">
+        <span class="col-hdr">Subject name</span>
+        <span class="col-hdr">Credits</span>
+        <span class="col-hdr">Grade pts</span>
+        <span class="col-hdr"></span>
+      </div>
+
+      <div id="cgpa-subjects"></div>
+
+      <button class="add-subject-btn" onclick="addSubject()">+ Add subject</button>
+
+      <div style="margin-top:20px;">
+        <div class="c-card-label" style="margin-bottom:14px;">Grade reference</div>
+        <div class="grade-ref">
+          <div class="grade-chip"><div class="grade-chip-letter">O</div><div class="grade-chip-pts">10 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">A+</div><div class="grade-chip-pts">9 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">A</div><div class="grade-chip-pts">8 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">B+</div><div class="grade-chip-pts">7 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">B</div><div class="grade-chip-pts">6 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">C</div><div class="grade-chip-pts">5 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">P</div><div class="grade-chip-pts">4 pts</div></div>
+          <div class="grade-chip"><div class="grade-chip-letter">F</div><div class="grade-chip-pts">0 pts</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result card -->
+    <div class="result-c">
+      <div class="c-card-label">Your CGPA</div>
+
+      <div class="big-result" style="padding:20px 0 18px;">
+        <div class="big-result-label">CGPA</div>
+        <div class="cgpa-big-num" id="cgpa-score">—</div>
+        <div class="big-result-sub">out of 10.0</div>
+      </div>
+
+      <div class="breakdown">
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:#fb923c"></span>Percentage (CBSE ×9.5)</span>
+          <span class="br-val" style="color:#fb923c;" id="cgpa-pct-cbse">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent2)"></span>Percentage (×10)</span>
+          <span class="br-val accent2" id="cgpa-pct-10">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent3)"></span>Total credits</span>
+          <span class="br-val accent3" id="cgpa-totalcredits">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key"><span class="br-dot" style="background:var(--accent5)"></span>Weighted points</span>
+          <span class="br-val accent5" id="cgpa-weightedpts">—</span>
+        </div>
+        <div class="br-row">
+          <span class="br-key">Grade equivalent</span>
+          <span class="br-val" id="cgpa-grade" style="color:#fb923c; font-size:18px; font-family:'DM Serif Display',serif;">—</span>
+        </div>
+      </div>
+
+      <!-- Quick CGPA → % converter -->
+      <div style="margin-top:20px; background:var(--card); border-radius:14px; padding:16px;">
+        <div style="font-size:12px; color:var(--muted); margin-bottom:10px; font-weight:500; text-transform:uppercase; letter-spacing:.08em;">Quick CGPA → % converter</div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <input type="number" class="sub-inp" id="cgpa-quick-in" placeholder="Enter CGPA" min="0" max="10" step="0.01" oninput="quickConvert()" style="font-size:18px; font-family:'DM Serif Display',serif; text-align:center;">
+          <span style="color:var(--muted);">→</span>
+          <div style="flex:1; text-align:center;">
+            <div style="font-family:'DM Serif Display',serif; font-size:22px; color:#fb923c;" id="cgpa-quick-out">—</div>
+            <div style="font-size:11px; color:var(--muted);">CBSE %</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .page -->
+
+<script>
+// ─── Helpers ───
+function fmtINR(n) {
+  n = Math.round(n);
+  if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + ' Cr';
+  if (n >= 100000)   return '₹' + (n/100000).toFixed(2) + ' L';
+  return '₹' + n.toLocaleString('en-IN');
+}
+
+function fmtFull(n) {
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+
+function setSliderFill(el, color) {
+  color = color || 'var(--accent)';
+  const pct = ((+el.value - +el.min) / (+el.max - +el.min)) * 100;
+  el.style.background = `linear-gradient(to right, ${color} ${pct}%, var(--track) ${pct}%)`;
+}
+
+// ─── Navigation ───
+let current = 'home';
+
+function showHome() {
+  document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
+  document.getElementById('home').classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  current = 'home';
+}
+
+function showTool(id) {
+  document.querySelectorAll('.tool-page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.textContent.toLowerCase().includes(id) ||
+        (id==='pct'  && b.textContent.includes('Percentage')) ||
+        (id==='sip'  && b.textContent.includes('SIP')) ||
+        (id==='cgpa' && b.textContent.includes('CGPA'))) {
+      b.classList.add('active');
+    }
+  });
+  current = id;
+  if (id === 'age')  initAge();
+  if (id === 'cgpa') initCGPA();
+}
+
+// ══════════ EMI ══════════
+function calcEMI() {
+  const P = +document.getElementById('emi-loan').value;
+  const R = +document.getElementById('emi-rate').value;
+  const Y = +document.getElementById('emi-tenure').value;
+  const N = Y * 12;
+
+  document.getElementById('emi-loanDisp').textContent = fmtINR(P);
+  document.getElementById('emi-rateDisp').innerHTML = R.toFixed(1) + ' <span class="unit">% p.a.</span>';
+  document.getElementById('emi-tenureDisp').innerHTML = Y + ' <span class="unit">years</span>';
+  document.getElementById('emi-months').textContent = N;
+
+  setSliderFill(document.getElementById('emi-loan'), 'var(--accent)');
+  setSliderFill(document.getElementById('emi-rate'), 'var(--accent)');
+  setSliderFill(document.getElementById('emi-tenure'), 'var(--accent)');
+
+  const r = R / 12 / 100;
+  const emi = r === 0 ? P/N : P * r * Math.pow(1+r,N) / (Math.pow(1+r,N)-1);
+  const total = emi * N;
+  const interest = total - P;
+  const intPct = Math.round((interest/total)*100);
+  const priPct = 100 - intPct;
+
+  document.getElementById('emi-result').textContent   = fmtFull(emi);
+  document.getElementById('emi-principal').textContent = fmtFull(P);
+  document.getElementById('emi-interest').textContent  = fmtFull(interest);
+  document.getElementById('emi-total').textContent     = fmtFull(total);
+  document.getElementById('emi-intPct').textContent    = intPct + '%';
+
+  const C = 301.6;
+  document.getElementById('emi-priArc').setAttribute('stroke-dashoffset', C - priPct/100*C);
+  document.getElementById('emi-intArc').setAttribute('stroke-dashoffset', C - intPct/100*C);
+
+  if (document.getElementById('emi-schedWrap').style.display !== 'none') {
+    buildEmiSchedule(P, R, N, emi);
+  }
+}
+
+function buildEmiSchedule(P, R, N, emi) {
+  const r = R/12/100;
+  const tbody = document.getElementById('emi-schedBody');
+  tbody.innerHTML = '';
+  let bal = P;
+  for (let i=1; i<=N; i++) {
+    const int = bal * r;
+    const pri = emi - int;
+    bal = Math.max(0, bal - pri);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i}</td><td>${fmtFull(emi)}</td><td class="c-pri">${fmtFull(pri)}</td><td class="c-int">${fmtFull(int)}</td><td>${fmtFull(bal)}</td>`;
+    tbody.appendChild(tr);
+  }
+}
+
+function toggleEmiSchedule() {
+  const w = document.getElementById('emi-schedWrap');
+  const b = document.getElementById('emi-schedBtn');
+  const open = w.style.display !== 'none';
+  w.style.display = open ? 'none' : 'block';
+  b.textContent = open ? 'View amortization schedule ↓' : 'Hide amortization schedule ↑';
+  if (!open) {
+    const P=+document.getElementById('emi-loan').value;
+    const R=+document.getElementById('emi-rate').value;
+    const N=+document.getElementById('emi-tenure').value*12;
+    const r=R/12/100;
+    const emi = r===0 ? P/N : P*r*Math.pow(1+r,N)/(Math.pow(1+r,N)-1);
+    buildEmiSchedule(P,R,N,emi);
+  }
+}
+
+// ══════════ GST ══════════
+let gstRate = 18;
+let gstType = 'add';
+
+function setGstRate(r, el) {
+  gstRate = r;
+  document.querySelectorAll('.gst-rate-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  calcGST();
+}
+
+function setGstType(t) {
+  gstType = t;
+  document.getElementById('gst-add-btn').classList.toggle('active', t==='add');
+  document.getElementById('gst-rem-btn').classList.toggle('active', t==='remove');
+  calcGST();
+}
+
+function calcGST() {
+  const amt = +document.getElementById('gst-amount').value || 0;
+  let base, gstAmt, total;
+
+  if (gstType === 'add') {
+    base   = amt;
+    gstAmt = amt * gstRate / 100;
+    total  = amt + gstAmt;
+    document.getElementById('gst-result-label').textContent = 'Total with GST';
+    document.getElementById('gst-result-sub').textContent   = `including ${gstRate}% GST`;
+  } else {
+    total  = amt;
+    base   = amt * 100 / (100 + gstRate);
+    gstAmt = total - base;
+    document.getElementById('gst-result-label').textContent = 'Price before GST';
+    document.getElementById('gst-result-sub').textContent   = `GST at ${gstRate}% removed`;
+  }
+
+  document.getElementById('gst-result').textContent = fmtFull(gstType==='add' ? total : base);
+  document.getElementById('gst-base').textContent   = fmtFull(base);
+  document.getElementById('gst-gstamt').textContent = fmtFull(gstAmt);
+  document.getElementById('gst-cgst').textContent   = fmtFull(gstAmt/2);
+  document.getElementById('gst-sgst').textContent   = fmtFull(gstAmt/2);
+  document.getElementById('gst-total').textContent  = fmtFull(total);
+}
+
+// ══════════ AGE ══════════
+function initAge() {
+  const today = new Date();
+  const todayStr = today.toISOString().split('T')[0];
+  document.getElementById('age-today').value = todayStr;
+  if (!document.getElementById('age-dob').value) {
+    const def = new Date(today.getFullYear()-25, today.getMonth(), today.getDate());
+    document.getElementById('age-dob').value = def.toISOString().split('T')[0];
+  }
+  calcAge();
+}
+
+function resetAgeToday() {
+  const today = new Date();
+  document.getElementById('age-today').value = today.toISOString().split('T')[0];
+  calcAge();
+}
+
+function calcAge() {
+  const dobVal = document.getElementById('age-dob').value;
+  const todayVal = document.getElementById('age-today').value;
+  if (!dobVal || !todayVal) return;
+
+  const dob   = new Date(dobVal);
+  const today = new Date(todayVal);
+
+  if (dob > today) {
+    document.getElementById('age-main').textContent = 'Date is in the future';
+    return;
+  }
+
+  let years  = today.getFullYear() - dob.getFullYear();
+  let months = today.getMonth() - dob.getMonth();
+  let days   = today.getDate() - dob.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+  if (months < 0) { years--; months += 12; }
+
+  const totalDays   = Math.floor((today - dob) / 86400000);
+  const totalMonths = years * 12 + months;
+  const totalHours  = totalDays * 24;
+
+  document.getElementById('age-main').textContent   = `${years} yrs, ${months} mo, ${days} days`;
+  document.getElementById('age-years').textContent  = years;
+  document.getElementById('age-months').textContent = months;
+  document.getElementById('age-days').textContent   = days;
+  document.getElementById('age-totalmonths').textContent = totalMonths.toLocaleString('en-IN');
+  document.getElementById('age-totaldays').textContent   = totalDays.toLocaleString('en-IN');
+  document.getElementById('age-totalhours').textContent  = totalHours.toLocaleString('en-IN');
+
+  // Next birthday
+  let nextBd = new Date(today.getFullYear(), dob.getMonth(), dob.getDate());
+  if (nextBd <= today) nextBd.setFullYear(nextBd.getFullYear() + 1);
+  const daysTobd = Math.ceil((nextBd - today) / 86400000);
+  document.getElementById('age-nextbd').textContent = daysTobd === 0 ? 'Today! 🎉' : `${daysTobd} days`;
+}
+
+// ══════════ PERCENTAGE ══════════
+let pctMode = 0;
+let p3Mode  = 'inc';
+
+function setPctMode(m, el) {
+  pctMode = m;
+  document.querySelectorAll('.pct-mode-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.pct-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('pct-'+m).classList.add('active');
+}
+
+function setP3Mode(m) {
+  p3Mode = m;
+  document.getElementById('p3-inc').classList.toggle('active', m==='inc');
+  document.getElementById('p3-dec').classList.toggle('active', m==='dec');
+  calcPct3();
+}
+
+function calcPct0() {
+  const x = +document.getElementById('p0-x').value;
+  const y = +document.getElementById('p0-y').value;
+  document.getElementById('p0-result').textContent = (x*y/100).toLocaleString('en-IN');
+}
+
+function calcPct1() {
+  const x = +document.getElementById('p1-x').value;
+  const y = +document.getElementById('p1-y').value;
+  document.getElementById('p1-result').textContent = y ? (x/y*100).toFixed(2)+'%' : '—';
+}
+
+function calcPct2() {
+  const x = +document.getElementById('p2-x').value;
+  const y = +document.getElementById('p2-y').value;
+  if (!x) { document.getElementById('p2-result').textContent = '—'; return; }
+  const chg = ((y-x)/x*100).toFixed(2);
+  const el = document.getElementById('p2-result');
+  el.textContent = (chg>0?'+':'') + chg + '%';
+  el.style.color = chg>=0 ? 'var(--accent2)' : 'var(--danger)';
+}
+
+function calcPct3() {
+  const y = +document.getElementById('p3-y').value;
+  const x = +document.getElementById('p3-x').value;
+  const result = p3Mode==='inc' ? y*(1+x/100) : y*(1-x/100);
+  document.getElementById('p3-result').textContent = result.toLocaleString('en-IN', {maximumFractionDigits:2});
+}
+
+// ══════════ SIP ══════════
+function calcSIP() {
+  const amt    = +document.getElementById('sip-amt').value;
+  const rate   = +document.getElementById('sip-rate').value;
+  const years  = +document.getElementById('sip-tenure').value;
+  const N      = years * 12;
+  const r      = rate / 12 / 100;
+
+  document.getElementById('sip-amtDisp').textContent    = fmtINR(amt);
+  document.getElementById('sip-rateDisp').innerHTML     = rate.toFixed(1)+' <span class="unit">% p.a.</span>';
+  document.getElementById('sip-tenureDisp').innerHTML   = years+' <span class="unit">years</span>';
+  document.getElementById('sip-sub').textContent        = `after ${years} years`;
+
+  setSliderFill(document.getElementById('sip-amt'),    'var(--accent5)');
+  setSliderFill(document.getElementById('sip-rate'),   'var(--accent5)');
+  setSliderFill(document.getElementById('sip-tenure'), 'var(--accent5)');
+
+  const corpus   = r===0 ? amt*N : amt * (Math.pow(1+r,N)-1) * (1+r) / r;
+  const invested = amt * N;
+  const gain     = corpus - invested;
+  const gainPct  = Math.round((gain/corpus)*100);
+  const invPct   = 100 - gainPct;
+
+  document.getElementById('sip-corpus').textContent   = fmtINR(corpus);
+  document.getElementById('sip-invested').textContent = fmtINR(invested);
+  document.getElementById('sip-gain').textContent     = fmtINR(gain);
+  document.getElementById('sip-total').textContent    = fmtINR(corpus);
+  document.getElementById('sip-gainPct').textContent  = gainPct + '%';
+
+  const C = 301.6;
+  document.getElementById('sip-invArc').setAttribute('stroke-dashoffset',  C - invPct/100*C);
+  document.getElementById('sip-gainArc').setAttribute('stroke-dashoffset', C - gainPct/100*C);
+}
+
+// ══════════ CGPA ══════════
+let subjectCount = 0;
+
+const gradeMap = [
+  {min:9.5, label:'O — Outstanding'},
+  {min:8.5, label:'A+ — Excellent'},
+  {min:7.5, label:'A — Very Good'},
+  {min:6.5, label:'B+ — Good'},
+  {min:5.5, label:'B — Above Average'},
+  {min:4.5, label:'C — Average'},
+  {min:4.0, label:'P — Pass'},
+  {min:0,   label:'F — Fail'}
+];
+
+function getGradeLabel(cgpa) {
+  for (const g of gradeMap) { if (cgpa >= g.min) return g.label; }
+  return 'F — Fail';
+}
+
+function initCGPA() {
+  if (subjectCount === 0) {
+    const defaults = [
+      {name:'Mathematics',   cr:4, gp:9},
+      {name:'Physics',       cr:4, gp:8},
+      {name:'Chemistry',     cr:3, gp:7},
+      {name:'English',       cr:2, gp:9},
+      {name:'Computer Sci.', cr:3, gp:10}
+    ];
+    defaults.forEach(s => addSubject(s.name, s.cr, s.gp));
+  }
+}
+
+function addSubject(name='', credits=3, gp=8) {
+  subjectCount++;
+  const id = subjectCount;
+  const container = document.getElementById('cgpa-subjects');
+  const row = document.createElement('div');
+  row.className = 'subject-row';
+  row.id = 'sub-row-' + id;
+  row.innerHTML = `
+    <input type="text" class="sub-inp" placeholder="Subject name" value="${name}" oninput="calcCGPA()">
+    <input type="number" class="sub-inp" placeholder="Cr" min="1" max="10" value="${credits}" oninput="calcCGPA()" style="text-align:center;">
+    <input type="number" class="sub-inp" placeholder="GP" min="0" max="10" step="0.5" value="${gp}" oninput="calcCGPA()" style="text-align:center;">
+    <button class="del-btn" onclick="removeSubject(${id})">×</button>
+  `;
+  container.appendChild(row);
+  calcCGPA();
+}
+
+function removeSubject(id) {
+  const row = document.getElementById('sub-row-' + id);
+  if (row) { row.remove(); calcCGPA(); }
+}
+
+function calcCGPA() {
+  const rows = document.querySelectorAll('#cgpa-subjects .subject-row');
+  let totalCredits = 0, weightedSum = 0;
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const cr = parseFloat(inputs[1].value) || 0;
+    const gp = parseFloat(inputs[2].value) || 0;
+    totalCredits += cr;
+    weightedSum  += cr * gp;
+  });
+
+  if (totalCredits === 0) {
+    document.getElementById('cgpa-score').textContent     = '—';
+    document.getElementById('cgpa-pct-cbse').textContent  = '—';
+    document.getElementById('cgpa-pct-10').textContent    = '—';
+    document.getElementById('cgpa-totalcredits').textContent = '—';
+    document.getElementById('cgpa-weightedpts').textContent  = '—';
+    document.getElementById('cgpa-grade').textContent     = '—';
+    return;
+  }
+
+  const cgpa = weightedSum / totalCredits;
+  const pctCBSE = cgpa * 9.5;
+  const pct10   = cgpa * 10;
+
+  document.getElementById('cgpa-score').textContent        = cgpa.toFixed(2);
+  document.getElementById('cgpa-pct-cbse').textContent     = pctCBSE.toFixed(2) + '%';
+  document.getElementById('cgpa-pct-10').textContent       = pct10.toFixed(2) + '%';
+  document.getElementById('cgpa-totalcredits').textContent = totalCredits;
+  document.getElementById('cgpa-weightedpts').textContent  = weightedSum.toFixed(1);
+  document.getElementById('cgpa-grade').textContent        = getGradeLabel(cgpa);
+}
+
+function quickConvert() {
+  const val = parseFloat(document.getElementById('cgpa-quick-in').value);
+  const el  = document.getElementById('cgpa-quick-out');
+  if (isNaN(val) || val < 0 || val > 10) { el.textContent = '—'; return; }
+  el.textContent = (val * 9.5).toFixed(2) + '%';
+}
+
+// ─── Init all ───
+calcEMI();
+calcGST();
+calcSIP();
+calcPct0();
+calcPct1();
+calcPct2();
+calcPct3();
+</script>
+</body>
+</html>
