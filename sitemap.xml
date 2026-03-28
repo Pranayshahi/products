@@ -4,65 +4,65 @@
 
   <!-- ═══ Homepage ═══ -->
   <url>
-    <loc>https://calctools.in/</loc>
+    <loc>https://calcadda.in/</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/"/>
   </url>
 
   <!-- ═══ EMI Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/emi-calculator</loc>
+    <loc>https://calcadda.in/emi-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/emi-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/emi-calculator"/>
   </url>
 
   <!-- ═══ GST Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/gst-calculator</loc>
+    <loc>https://calcadda.in/gst-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/gst-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/gst-calculator"/>
   </url>
 
   <!-- ═══ Age Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/age-calculator</loc>
+    <loc>https://calcadda.in/age-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/age-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/age-calculator"/>
   </url>
 
   <!-- ═══ Percentage Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/percentage-calculator</loc>
+    <loc>https://calcadda.in/percentage-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/percentage-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/percentage-calculator"/>
   </url>
 
   <!-- ═══ SIP Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/sip-calculator</loc>
+    <loc>https://calcadda.in/sip-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/sip-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/sip-calculator"/>
   </url>
 
   <!-- ═══ CGPA Calculator ═══ -->
   <url>
-    <loc>https://calctools.in/cgpa-calculator</loc>
+    <loc>https://calcadda.in/cgpa-calculator</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calctools.in/cgpa-calculator"/>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/cgpa-calculator"/>
   </url>
 
 </urlset>
