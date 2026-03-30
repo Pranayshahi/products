@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Currency Converter India — Live Exchange Rates | INR USD EUR AED | CalcAdda.in</title>
+<meta name="description" content="Free live currency converter India. Convert INR to USD, EUR, AED, GBP, JPY and 150+ currencies with real-time exchange rates. Updated automatically.">
+<meta name="keywords" content="currency converter India, INR to USD, INR to AED, dollar to rupee today, live exchange rate India, forex converter rupee 2025">
+<link rel="canonical" href="https://calcadda.in/currency-converter.html">
+<meta property="og:title" content="Currency Converter India — Live Exchange Rates | INR USD EUR AED"><meta property="og:description" content="Free live currency converter India. Convert INR to USD, EUR, AED, GBP, JPY and 150+ currencies with real-time exchange rates. Updated automatically."><meta property="og:url" content="https://calcadda.in/currency-converter.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Currency Converter</div><h1>💱 Currency Converter — Live Rates</h1><p>Convert Indian Rupee (INR) to any world currency with live exchange rates. Popular INR pairs shown instantly.</p></div>
+  <div id="crstatus" style="display:inline-block;font-size:12px;color:var(--m);padding:5px 12px;background:var(--s2);border:1px solid var(--b1);border-radius:20px;margin-bottom:16px">Fetching live rates…</div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Convert</div>
+      <div class="field"><label class="lbl">Amount</label><input type="number" class="inp" id="cramt" value="1000" oninput="calcCurr()"></div>
+      <div class="field"><label class="lbl">From currency</label><select class="curr-sel inp" id="crfrom" onchange="calcCurr()"></select></div>
+      <div class="field"><label class="lbl">To currency</label><select class="curr-sel inp" id="crto" onchange="calcCurr()"></select></div>
+      <button class="tb on" style="width:100%;margin-top:4px" onclick="swapCurr()">⇄ Swap currencies</button>
+    </div>
+    <div class="card-r">
+      <div class="cl">Result</div>
+      <div class="big"><div class="bl" id="crlbl">Converted amount</div><div class="bv" id="crres" style="color:var(--p)">—</div><div class="bs" id="crsub">—</div></div>
+      <div class="bk">
+        <div class="br"><span class="bk-key">Exchange rate</span><span class="bk-val" id="crrate">—</span></div>
+        <div class="br"><span class="bk-key">Inverse rate</span><span class="bk-val" id="crinv">—</span></div>
+        <div class="br"><span class="bk-key" style="font-size:11px">Last updated</span><span class="bk-val" style="font-size:11px" id="crupd">—</span></div>
+      </div>
+      <div class="cl" style="margin-top:16px">Popular INR rates</div>
+      <div class="pop-grid" id="crpop"></div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">Currency Converter — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is today's USD to INR rate? <span class="fi">+</span></div><div class="fa">The USD to INR rate is updated live on this page using open exchange rate APIs. As of early 2026, 1 USD ≈ ₹83–85. Select USD → INR above to see the current live rate.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">Are these exchange rates live? <span class="fi">+</span></div><div class="fa">Yes, rates are fetched from open.er-api.com which updates rates daily. These are mid-market rates. Actual rates from banks or money exchangers may differ slightly due to their spread/margin.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is 1 AED in Indian Rupees? <span class="fi">+</span></div><div class="fa">1 AED ≈ ₹22.7 (approximate, as of early 2026). This is important for the large Indian expat community in the UAE. Select AED → INR above for the current live rate.</div></div>
+  </div>
+</div>
+<script>
+let rates={},rDate='';
+const CURR=['USD','EUR','GBP','INR','JPY','AUD','CAD','CHF','CNY','SGD','AED','SAR','HKD','NZD','SEK','NOK','DKK','MYR','THB','IDR','KWD','BHD','QAR','OMR'];
+const FLAGS={USD:'🇺🇸',EUR:'🇪🇺',GBP:'🇬🇧',INR:'🇮🇳',JPY:'🇯🇵',AUD:'🇦🇺',CAD:'🇨🇦',CHF:'🇨🇭',CNY:'🇨🇳',SGD:'🇸🇬',AED:'🇦🇪',SAR:'🇸🇦',HKD:'🇭🇰',NZD:'🇳🇿',SEK:'🇸🇪',NOK:'🇳🇴',DKK:'🇩🇰',MYR:'🇲🇾',THB:'🇹🇭',IDR:'🇮🇩',KWD:'🇰🇼',BHD:'🇧🇭',QAR:'🇶🇦',OMR:'🇴🇲'};
+const FALLBACK={USD:1,EUR:0.92,GBP:0.79,INR:83.9,JPY:149.8,AUD:1.53,CAD:1.36,CHF:0.89,CNY:7.24,SGD:1.34,AED:3.67,SAR:3.75,HKD:7.82,NZD:1.63,SEK:10.4,NOK:10.5,DKK:6.88,MYR:4.65,THB:35.1,IDR:15600,KWD:0.307,BHD:0.377,QAR:3.64,OMR:0.385};
+async function initCurr(){
+  try{const r=await fetch('https://open.er-api.com/v6/latest/USD');const d=await r.json();if(d.result==='success'){rates=d.rates;rDate=d.time_last_update_utc;document.getElementById('crstatus').textContent='✓ Live rates · '+new Date(rDate).toLocaleDateString('en-IN');}else throw new Error();}
+  catch{rates=FALLBACK;document.getElementById('crstatus').textContent='Using offline rates (connect internet for live rates)';}
+  setupSelects();calcCurr();buildPop();
+}
+function setupSelects(){
+  ['crfrom','crto'].forEach((id,i)=>{const s=document.getElementById(id);if(s.options.length)return;CURR.forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=(FLAGS[c]||'')+' '+c;s.appendChild(o)});s.value=i===0?'INR':'USD';});
+}
+function calcCurr(){
+  const amt=+document.getElementById('cramt').value||0,f=document.getElementById('crfrom').value,t=document.getElementById('crto').value;
+  if(!rates[f]||!rates[t])return;const rate=rates[t]/rates[f],res=amt*rate;
+  document.getElementById('crres').textContent=res.toLocaleString('en-IN',{maximumFractionDigits:4})+' '+t;
+  document.getElementById('crlbl').textContent=amt.toLocaleString()+' '+f+' =';
+  document.getElementById('crsub').textContent=`1 ${f} = ${rate.toFixed(4)} ${t}`;
+  document.getElementById('crrate').textContent=`1 ${f} = ${rate.toFixed(4)} ${t}`;
+  document.getElementById('crinv').textContent=`1 ${t} = ${(1/rate).toFixed(4)} ${f}`;
+  document.getElementById('crupd').textContent=rDate?new Date(rDate).toLocaleDateString('en-IN'):'Offline rates';
+}
+function swapCurr(){const f=document.getElementById('crfrom').value,t=document.getElementById('crto').value;document.getElementById('crfrom').value=t;document.getElementById('crto').value=f;calcCurr()}
+function buildPop(){
+  const g=document.getElementById('crpop');g.innerHTML='';[['USD','INR'],['EUR','INR'],['GBP','INR'],['AED','INR'],['SGD','INR'],['JPY','INR'],['CAD','INR'],['AUD','INR']].forEach(([f,t])=>{if(!rates[f]||!rates[t])return;const r=rates[t]/rates[f];const d=document.createElement('div');d.className='pop-c';d.onclick=()=>{document.getElementById('crfrom').value=f;document.getElementById('crto').value=t;calcCurr()};d.innerHTML=`<div class="pop-f">${FLAGS[f]||''}</div><div class="pop-p">${f} → ${t}</div><div class="pop-r">${r.toFixed(2)}</div>`;g.appendChild(d);});
+}
+initCurr();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

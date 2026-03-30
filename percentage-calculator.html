@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Percentage Calculator India — Find %, Change, Increase & Decrease | CalcAdda.in</title>
+<meta name="description" content="Free percentage calculator with 4 modes: find what X% of Y is, what percent X is of Y, percentage change between two numbers, and percentage increase or decrease.">
+<meta name="keywords" content="percentage calculator India, what is X percent of Y, percentage change calculator, percent increase decrease, percentage difference calculator">
+<link rel="canonical" href="https://calcadda.in/percentage-calculator.html">
+<meta property="og:title" content="Percentage Calculator India — Find %, Change, Increase & Decrease"><meta property="og:description" content="Free percentage calculator with 4 modes: find what X% of Y is, what percent X is of Y, percentage change between two numbers, and percentage increase or decrease."><meta property="og:url" content="https://calcadda.in/percentage-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Percentage Calculator</div><h1>% Percentage Calculator</h1><p>Four types of percentage calculations in one place. No need to remember formulas — just enter the numbers.</p></div>
+  <div style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
+    <button class="pcat on" onclick="setPM(0,this)">X% of Y</button>
+    <button class="pcat" onclick="setPM(1,this)">X is what % of Y</button>
+    <button class="pcat" onclick="setPM(2,this)">% change</button>
+    <button class="pcat" onclick="setPM(3,this)">Increase / Decrease</button>
+  </div>
+  <div id="pp0" class="pp on"><div class="card"><div class="cl">What is X% of Y?</div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0"><input type="number" class="big-num-inp" id="p0x" placeholder="X" value="15" oninput="calcP0()"><span style="color:var(--m)">% of</span><input type="number" class="big-num-inp" id="p0y" placeholder="Y" value="4500" oninput="calcP0()"><span style="color:var(--m)">=</span></div><div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad);padding:18px;text-align:center;margin-top:10px"><div style="font-size:11px;color:var(--m);margin-bottom:6px">Result</div><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:700;letter-spacing:-2px;color:var(--g)" id="p0r">675</div></div></div></div>
+  <div id="pp1" class="pp"><div class="card"><div class="cl">X is what % of Y?</div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0"><input type="number" class="big-num-inp" id="p1x" placeholder="X" value="45" oninput="calcP1()"><span style="color:var(--m)">is what % of</span><input type="number" class="big-num-inp" id="p1y" placeholder="Y" value="300" oninput="calcP1()"></div><div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad);padding:18px;text-align:center;margin-top:10px"><div style="font-size:11px;color:var(--m);margin-bottom:6px">Result</div><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:700;letter-spacing:-2px;color:var(--g)" id="p1r">15%</div></div></div></div>
+  <div id="pp2" class="pp"><div class="card"><div class="cl">Percentage change from X to Y</div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0"><input type="number" class="big-num-inp" id="p2x" placeholder="From" value="800" oninput="calcP2()"><span style="color:var(--m)">→</span><input type="number" class="big-num-inp" id="p2y" placeholder="To" value="1000" oninput="calcP2()"></div><div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad);padding:18px;text-align:center;margin-top:10px"><div style="font-size:11px;color:var(--m);margin-bottom:6px">Change</div><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:700;letter-spacing:-2px;color:var(--g)" id="p2r">+25%</div></div></div></div>
+  <div id="pp3" class="pp"><div class="card"><div class="cl">Increase or decrease by %</div><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0"><input type="number" class="big-num-inp" id="p3y" placeholder="Amount" value="5000" oninput="calcP3()"><div class="tg" style="margin:0"><button class="tb on" id="p3i" onclick="setP3m('inc')">+</button><button class="tb" id="p3d" onclick="setP3m('dec')">−</button></div><input type="number" class="big-num-inp" id="p3x" placeholder="%" value="20" oninput="calcP3()"><span style="color:var(--m)">%</span></div><div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad);padding:18px;text-align:center;margin-top:10px"><div style="font-size:11px;color:var(--m);margin-bottom:6px">Result</div><div style="font-family:'Syne',sans-serif;font-size:42px;font-weight:700;letter-spacing:-2px;color:var(--g)" id="p3r">6000</div></div></div></div>
+  <div class="faq">
+    <div class="faq-h">Percentage Calculator — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to find X% of a number? <span class="fi">+</span></div><div class="fa">Formula: Result = (X ÷ 100) × Y. For example, 15% of 4500 = (15 ÷ 100) × 4500 = 675. Use the "X% of Y" tab above.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to calculate percentage change? <span class="fi">+</span></div><div class="fa">% Change = ((New Value − Old Value) ÷ Old Value) × 100. Positive = increase, negative = decrease. Use the "% change" tab above — enter the old value and new value.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How do I calculate a discount? <span class="fi">+</span></div><div class="fa">For a 20% discount on ₹5000: Use the "Decrease by %" tab, enter ₹5000 as the amount and 20 as the %, result = ₹4000. Or use "X% of Y" to find the discount amount (20% of 5000 = 1000).</div></div>
+  </div>
+</div>
+<script>
+let p3m='inc';
+function setPM(m,el){document.querySelectorAll('.pcat').forEach(b=>b.classList.remove('on'));el.classList.add('on');document.querySelectorAll('.pp').forEach(p=>p.classList.remove('on'));document.getElementById('pp'+m).classList.add('on')}
+function setP3m(m){p3m=m;document.getElementById('p3i').classList.toggle('on',m==='inc');document.getElementById('p3d').classList.toggle('on',m==='dec');calcP3()}
+function calcP0(){const x=+document.getElementById('p0x').value,y=+document.getElementById('p0y').value;document.getElementById('p0r').textContent=(x*y/100).toLocaleString('en-IN')}
+function calcP1(){const x=+document.getElementById('p1x').value,y=+document.getElementById('p1y').value;document.getElementById('p1r').textContent=y?(x/y*100).toFixed(2)+'%':'—'}
+function calcP2(){const x=+document.getElementById('p2x').value,y=+document.getElementById('p2y').value;if(!x){document.getElementById('p2r').textContent='—';return}const c=((y-x)/x*100).toFixed(2);const el=document.getElementById('p2r');el.textContent=(c>0?'+':'')+c+'%';el.style.color=c>=0?'var(--g)':'var(--r)'}
+function calcP3(){const y=+document.getElementById('p3y').value,x=+document.getElementById('p3x').value,r=p3m==='inc'?y*(1+x/100):y*(1-x/100);document.getElementById('p3r').textContent=r.toLocaleString('en-IN',{maximumFractionDigits:2})}
+calcP0();calcP1();calcP2();calcP3();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

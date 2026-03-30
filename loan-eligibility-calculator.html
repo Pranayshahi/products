@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Loan Eligibility Calculator India — How Much Loan Can I Get? | CalcAdda.in</title>
+<meta name="description" content="Free loan eligibility calculator India. Find maximum home loan, car loan or personal loan you can get based on your monthly salary, existing EMIs and FOIR. Instant result.">
+<meta name="keywords" content="loan eligibility calculator India, how much home loan can I get, loan eligibility based on salary, FOIR calculator, max loan amount India 2025">
+<link rel="canonical" href="https://calcadda.in/loan-eligibility-calculator.html">
+<meta property="og:title" content="Loan Eligibility Calculator India — How Much Loan Can I Get?"><meta property="og:description" content="Free loan eligibility calculator India. Find maximum home loan, car loan or personal loan you can get based on your monthly salary, existing EMIs and FOIR. Instant result."><meta property="og:url" content="https://calcadda.in/loan-eligibility-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Loan Eligibility Calculator</div><h1>✅ Loan Eligibility Calculator</h1><p>Find the maximum loan amount you can get based on your salary, existing EMIs, and the bank's FOIR (Fixed Obligation to Income Ratio).</p></div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Your financial profile</div>
+      <div class="field"><div class="fh"><span class="fn">Monthly net salary</span><span class="fv" id="ls">₹50,000</span></div><input type="range" id="lsr" min="10000" max="500000" step="5000" value="50000" oninput="calcLE()"><div class="rl"><span>₹10K</span><span>₹5L</span></div></div>
+      <div class="field"><div class="fh"><span class="fn">Existing monthly EMIs</span><span class="fv" id="le">₹0</span></div><input type="range" id="ler" min="0" max="100000" step="1000" value="0" oninput="calcLE()"><div class="rl"><span>₹0</span><span>₹1L</span></div></div>
+      <div class="field"><div class="fh"><span class="fn">Interest rate offered</span><span class="fv" id="lr">8.5 <span class="u">%</span></span></div><input type="range" id="lrr" min="5" max="24" step="0.1" value="8.5" oninput="calcLE()"><div class="rl"><span>5%</span><span>24%</span></div></div>
+      <div class="field"><div class="fh"><span class="fn">Loan tenure</span><span class="fv" id="lt">20 <span class="u">yrs</span></span></div><input type="range" id="ltr" min="1" max="30" step="1" value="20" oninput="calcLE()"><div class="rl"><span>1 yr</span><span>30 yrs</span></div></div>
+      <div class="field"><label class="lbl" style="margin-bottom:7px;display:block">FOIR (Fixed Obligation to Income Ratio)</label>
+        <div class="tg"><button class="tb on" onclick="setFOIR(0.4,this)">40%</button><button class="tb" onclick="setFOIR(0.5,this)">50%</button><button class="tb" onclick="setFOIR(0.6,this)">60%</button></div>
+        <div style="font-size:11px;color:var(--m);margin-top:5px">Most banks allow 40–50% of net income as total EMI obligation</div>
+      </div>
+    </div>
+    <div class="card-r">
+      <div class="cl">Eligibility result</div>
+      <div class="big"><div class="bl">Maximum loan amount</div><div class="bv" id="lres" style="color:var(--g)">₹0</div><div class="bs" id="lsub">based on ₹50,000/month salary</div></div>
+      <div class="bk">
+        <div class="br"><span class="bk-key">Monthly salary</span><span class="bk-val" id="l-sal">₹0</span></div>
+        <div class="br"><span class="bk-key">Max EMI allowed (<span id="lfpct">40</span>%)</span><span class="bk-val" style="color:var(--g)" id="l-max">₹0</span></div>
+        <div class="br"><span class="bk-key">Existing EMIs</span><span class="bk-val" style="color:var(--r)" id="l-exist">₹0</span></div>
+        <div class="br"><span class="bk-key">Available for new loan</span><span class="bk-val" style="color:var(--g)" id="l-avail">₹0</span></div>
+        <div class="br"><span class="bk-key">EMI per lakh</span><span class="bk-val" id="l-perlakh">₹0</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--tx);font-weight:500">Eligible loan amount</span><span class="bk-val" style="color:var(--g)" id="l-elig">₹0</span></div>
+      </div>
+      <div class="ib ib-b" style="margin-top:12px;font-size:12px">💡 Tips: Increase tenure, reduce existing EMIs, or improve CIBIL score (750+) to get a higher loan amount.</div>
+      <div style="margin-top:14px"><div class="aff-hd">Apply at leading banks</div><div class="aff-grid" style="grid-template-columns:repeat(3,1fr)">
+        <a href="https://www.hdfcbank.com/personal/borrow/popular-loans/home-loan" target="_blank" rel="noopener" class="aff-a"><span class="aff-n">HDFC Bank</span><span class="aff-r">From 8.70%</span><span class="aff-c">Apply ↗</span></a>
+        <a href="https://homeloans.sbi/" target="_blank" rel="noopener" class="aff-a"><span class="aff-n">SBI</span><span class="aff-r">From 8.50%</span><span class="aff-c">Apply ↗</span></a>
+        <a href="https://www.icicibank.com/personal-banking/home-loans" target="_blank" rel="noopener" class="aff-a"><span class="aff-n">ICICI Bank</span><span class="aff-r">From 8.75%</span><span class="aff-c">Apply ↗</span></a>
+      </div></div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">Loan Eligibility — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is FOIR and how does it affect loan eligibility? <span class="fi">+</span></div><div class="fa">FOIR (Fixed Obligation to Income Ratio) is the percentage of your income that banks allow as total EMI obligations. Most banks cap this at 40–50%. If your salary is ₹50,000 and existing EMIs are ₹5,000, the bank allows max ₹20,000 (40% of ₹50K = ₹20K, minus ₹5K existing = ₹15K for new loan).</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What salary do I need for a ₹50 lakh home loan? <span class="fi">+</span></div><div class="fa">For a ₹50L home loan at 8.5% for 20 years, the EMI is approximately ₹43,400. At 40% FOIR, you'd need a minimum salary of ~₹1.08L/month (₹43,400 ÷ 0.40). With other existing EMIs, the required salary would be higher. Use the calculator above for your exact scenario.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How can I increase my loan eligibility? <span class="fi">+</span></div><div class="fa">Close existing loans or credit card dues to reduce FOIR. Improve your CIBIL score above 750 for better rates. Add a co-applicant (spouse) with income. Choose a longer tenure to reduce EMI. Some banks also consider rental income or business income in addition to salary.</div></div>
+  </div>
+</div>
+<script>
+let foir=0.4;
+function setFOIR(f,el){foir=f;document.querySelectorAll('.card .tg .tb').forEach(b=>b.classList.remove('on'));el.classList.add('on');document.getElementById('lfpct').textContent=Math.round(f*100);calcLE()}
+function calcLE(){
+  const sal=+document.getElementById('lsr').value,exist=+document.getElementById('ler').value,R=+document.getElementById('lrr').value,Y=+document.getElementById('ltr').value,N=Y*12;
+  document.getElementById('ls').textContent=fI(sal);document.getElementById('le').textContent=fI(exist);document.getElementById('lr').innerHTML=R.toFixed(1)+' <span class="u">%</span>';document.getElementById('lt').innerHTML=Y+' <span class="u">yrs</span>';
+  sf(document.getElementById('lsr'),'var(--g)');sf(document.getElementById('ler'),'var(--r)');sf(document.getElementById('lrr'),'var(--g)');sf(document.getElementById('ltr'),'var(--g)');
+  const maxEMI=sal*foir,avail=Math.max(0,maxEMI-exist),r=R/12/100;
+  const loanAmt=r===0?avail*N:avail*(Math.pow(1+r,N)-1)/(r*Math.pow(1+r,N));
+  const perlakh=r===0?100000/N:100000*r*Math.pow(1+r,N)/(Math.pow(1+r,N)-1);
+  document.getElementById('lres').textContent=fI(loanAmt);document.getElementById('lsub').textContent=`based on ${fF(sal)}/month salary`;
+  document.getElementById('l-sal').textContent=fF(sal);document.getElementById('l-max').textContent=fF(maxEMI);document.getElementById('l-exist').textContent=fF(exist);document.getElementById('l-avail').textContent=fF(avail);document.getElementById('l-perlakh').textContent=fF(perlakh);document.getElementById('l-elig').textContent=fI(loanAmt);
+}
+calcLE();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

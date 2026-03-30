@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Age Calculator India — Exact Age in Years Months Days | Birthday Countdown | CalcAdda.in</title>
+<meta name="description" content="Free age calculator India. Find your exact age in years, months, days and hours. See how many days until your next birthday. Works for any date.">
+<meta name="keywords" content="age calculator India, exact age calculator, birthday calculator, how old am I, age in days months years, next birthday countdown India">
+<link rel="canonical" href="https://calcadda.in/age-calculator.html">
+<meta property="og:title" content="Age Calculator India — Exact Age in Years Months Days | Birthday Countdown"><meta property="og:description" content="Free age calculator India. Find your exact age in years, months, days and hours. See how many days until your next birthday. Works for any date."><meta property="og:url" content="https://calcadda.in/age-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Age Calculator</div><h1>🎂 Age Calculator</h1><p>Find your exact age in years, months, days and hours. See when your next birthday is and how many days away it is.</p></div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Enter dates</div>
+      <div class="field"><label class="lbl">Date of birth</label><input type="date" class="inp" id="adob" oninput="calcAge()"></div>
+      <div class="field"><label class="lbl">Calculate age on</label><input type="date" class="inp" id="aon" oninput="calcAge()"></div>
+      <button class="tb on" style="width:100%;margin-top:6px" onclick="resetAge()">Reset to today</button>
+    </div>
+    <div class="card-r">
+      <div class="cl">Your age</div>
+      <div class="big"><div class="bl">Exact age</div><div class="bv" id="amain" style="color:var(--p);font-size:clamp(18px,3.5vw,30px);letter-spacing:-.3px">—</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0">
+        <div style="background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad);padding:12px;text-align:center"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;letter-spacing:-1px;color:var(--p)" id="ay">—</div><div style="font-size:11px;color:var(--m)">Years</div></div>
+        <div style="background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad);padding:12px;text-align:center"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;letter-spacing:-1px;color:var(--g)" id="am">—</div><div style="font-size:11px;color:var(--m)">Months</div></div>
+        <div style="background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad);padding:12px;text-align:center"><div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:700;letter-spacing:-1px;color:var(--a)" id="ad">—</div><div style="font-size:11px;color:var(--m)">Days</div></div>
+      </div>
+      <div class="bk">
+        <div class="br"><span class="bk-key">Total months</span><span class="bk-val" id="atm">—</span></div>
+        <div class="br"><span class="bk-key">Total days</span><span class="bk-val" id="atd">—</span></div>
+        <div class="br"><span class="bk-key">Total hours</span><span class="bk-val" id="ath">—</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--p)">Next birthday in</span><span class="bk-val" style="color:var(--p)" id="anb">—</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">Age Calculator — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How do I calculate my exact age? <span class="fi">+</span></div><div class="fa">Enter your date of birth and today's date above. The calculator computes the difference in years, months and remaining days — accounting for leap years and different month lengths.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">Why is age calculation useful? <span class="fi">+</span></div><div class="fa">Age calculations are needed for government forms, school admissions (age eligibility), insurance applications, retirement planning, and medical assessments. This calculator gives the legally precise age as on any given date.</div></div>
+  </div>
+</div>
+<script>
+function initAge(){const t=new Date().toISOString().split('T')[0];document.getElementById('aon').value=t;if(!document.getElementById('adob').value){const d=new Date(new Date().getFullYear()-25,new Date().getMonth(),new Date().getDate());document.getElementById('adob').value=d.toISOString().split('T')[0]}calcAge()}
+function resetAge(){document.getElementById('aon').value=new Date().toISOString().split('T')[0];calcAge()}
+function calcAge(){
+  const dob=new Date(document.getElementById('adob').value),on=new Date(document.getElementById('aon').value);
+  if(!dob||!on||isNaN(dob)||isNaN(on)||dob>on){document.getElementById('amain').textContent='Pick valid dates';return}
+  let y=on.getFullYear()-dob.getFullYear(),m=on.getMonth()-dob.getMonth(),d=on.getDate()-dob.getDate();
+  if(d<0){m--;d+=new Date(on.getFullYear(),on.getMonth(),0).getDate()}if(m<0){y--;m+=12}
+  const td=Math.floor((on-dob)/86400000),tm=y*12+m;
+  document.getElementById('amain').textContent=`${y} years, ${m} months, ${d} days`;
+  document.getElementById('ay').textContent=y;document.getElementById('am').textContent=m;document.getElementById('ad').textContent=d;
+  document.getElementById('atm').textContent=fN(tm);document.getElementById('atd').textContent=fN(td);document.getElementById('ath').textContent=fN(td*24);
+  let nb=new Date(on.getFullYear(),dob.getMonth(),dob.getDate());if(nb<=on)nb.setFullYear(nb.getFullYear()+1);
+  const dbd=Math.ceil((nb-on)/86400000);document.getElementById('anb').textContent=dbd===0?'Today! 🎉':dbd+' days';
+}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+initAge();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

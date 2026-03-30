@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>GST Calculator India 2025 — Add or Remove GST | CGST SGST IGST | CalcAdda.in</title>
+<meta name="description" content="Free GST calculator India. Add or remove GST at 5%, 12%, 18%, 28%. Get instant CGST, SGST and IGST breakdown. Works for intra-state and inter-state transactions.">
+<meta name="keywords" content="GST calculator India, CGST SGST calculator, GST add remove, 18% GST calculator, GST inclusive exclusive, IGST calculator, GST rate India 2025">
+<link rel="canonical" href="https://calcadda.in/gst-calculator.html">
+<meta property="og:title" content="GST Calculator India 2025 — Add or Remove GST | CGST SGST IGST"><meta property="og:description" content="Free GST calculator India. Add or remove GST at 5%, 12%, 18%, 28%. Get instant CGST, SGST and IGST breakdown. Works for intra-state and inter-state transactions."><meta property="og:url" content="https://calcadda.in/gst-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › GST Calculator</div><h1>🧾 GST Calculator India</h1><p>Add or remove GST from any amount. Get instant CGST, SGST and IGST breakdown. All GST slabs — 5%, 12%, 18%, 28%. Intra-state and inter-state support.</p></div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Enter details</div>
+      <div class="field"><label class="lbl">Amount (₹)</label><input type="number" class="inp" id="ga" value="10000" oninput="calcGST()"></div>
+      <div class="field"><label class="lbl" style="margin-bottom:7px;display:block">GST rate</label><div class="tg"><button class="tb" onclick="setGR(5,this)">5%</button><button class="tb" onclick="setGR(12,this)">12%</button><button class="tb on" onclick="setGR(18,this)">18%</button><button class="tb" onclick="setGR(28,this)">28%</button></div></div>
+      <div class="field"><label class="lbl" style="margin-bottom:7px;display:block">Type</label><div class="tg"><button class="tb on" id="gadd" onclick="setGT('add')">Add GST</button><button class="tb" id="grem" onclick="setGT('remove')">Remove GST</button></div></div>
+      <div class="field"><label class="lbl" style="margin-bottom:7px;display:block">Transaction</label><div class="tg"><button class="tb on" id="gintra" onclick="setGTx('intra')">Intra-state (CGST+SGST)</button><button class="tb" id="ginter" onclick="setGTx('inter')">Inter-state (IGST)</button></div></div>
+      <div class="ib ib-b" style="font-size:12px">Intra-state splits into CGST + SGST (equal halves). Inter-state uses IGST.</div>
+    </div>
+    <div class="card-r">
+      <div class="cl">GST breakdown</div>
+      <div class="big"><div class="bl" id="glbl">Total with GST</div><div class="bv" id="gv" style="color:var(--b)">₹0</div><div class="bs" id="gsub">including 18% GST</div></div>
+      <div class="bk">
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--g)"></span>Base amount</span><span class="bk-val" style="color:var(--g)" id="gbase">₹0</span></div>
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--b)"></span>GST amount</span><span class="bk-val" style="color:var(--b)" id="ggst">₹0</span></div>
+        <div class="br" id="gcr"><span class="bk-key">CGST (half)</span><span class="bk-val" id="gcgst">₹0</span></div>
+        <div class="br" id="gsr"><span class="bk-key">SGST (half)</span><span class="bk-val" id="gsgst">₹0</span></div>
+        <div class="br" id="gir" style="display:none"><span class="bk-key">IGST (full)</span><span class="bk-val" id="gigst">₹0</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--tx);font-weight:500">Total amount</span><span class="bk-val" style="color:var(--b)" id="gtot">₹0</span></div>
+      </div>
+      <div style="margin-top:16px;background:var(--s2);border-radius:var(--rad);padding:14px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--m);margin-bottom:9px">All rates comparison</div>
+        <div id="gref" style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px"></div>
+      </div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">GST Calculator — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What are the GST rates in India? <span class="fi">+</span></div><div class="fa">India has 4 main GST rates: 5% (essential goods — food, medicines), 12% (processed foods, computers), 18% (most services, electronics), 28% (luxury items, automobiles). Some items like fresh vegetables and milk are 0% (exempt).</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is the difference between CGST, SGST and IGST? <span class="fi">+</span></div><div class="fa">CGST and SGST are applied on intra-state transactions, each being half the total rate. For example, 18% GST = 9% CGST + 9% SGST. IGST (full rate) applies on inter-state transactions, collected by the central government and later shared with states.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to remove GST from an MRP? <span class="fi">+</span></div><div class="fa">Base price = MRP × 100 ÷ (100 + GST%). For example, to remove 18% GST from ₹11,800: 11800 × 100 / 118 = ₹10,000 base price. Use the "Remove GST" option above — enter the MRP (inclusive price) and it calculates the base automatically.</div></div>
+  </div>
+</div>
+<script>
+let grate=18,gtype='add',gtx='intra';
+function setGR(r,el){grate=r;document.querySelectorAll('.card .tg .tb').forEach(b=>b.classList.remove('on'));el.classList.add('on');calcGST()}
+function setGT(t){gtype=t;document.getElementById('gadd').classList.toggle('on',t==='add');document.getElementById('grem').classList.toggle('on',t==='remove');calcGST()}
+function setGTx(t){gtx=t;document.getElementById('gintra').classList.toggle('on',t==='intra');document.getElementById('ginter').classList.toggle('on',t==='inter');calcGST()}
+function calcGST(){
+  const amt=+document.getElementById('ga').value||0;let base,gst,tot;
+  if(gtype==='add'){base=amt;gst=amt*grate/100;tot=amt+gst;document.getElementById('glbl').textContent='Total with GST';document.getElementById('gsub').textContent=`including ${grate}% GST`;}
+  else{tot=amt;base=amt*100/(100+grate);gst=tot-base;document.getElementById('glbl').textContent='Price before GST';document.getElementById('gsub').textContent=`${grate}% GST removed`;}
+  document.getElementById('gv').textContent=fF(gtype==='add'?tot:base);
+  document.getElementById('gbase').textContent=fF(base);document.getElementById('ggst').textContent=fF(gst);
+  document.getElementById('gcgst').textContent=fF(gst/2);document.getElementById('gsgst').textContent=fF(gst/2);document.getElementById('gigst').textContent=fF(gst);document.getElementById('gtot').textContent=fF(tot);
+  const inter=gtx==='inter';document.getElementById('gcr').style.display=inter?'none':'flex';document.getElementById('gsr').style.display=inter?'none':'flex';document.getElementById('gir').style.display=inter?'flex':'none';
+  const ref=document.getElementById('gref');ref.innerHTML='';[5,12,18,28].forEach(r=>{const g=gtype==='add'?amt*r/100:(amt-amt*100/(100+r));const d=document.createElement('div');d.style.cssText=`background:var(--s3);border:1px solid ${r===grate?'var(--v)':'var(--b1)'};border-radius:8px;padding:9px;text-align:center;cursor:pointer`;d.innerHTML=`<div style="font-size:12px;font-weight:500;color:var(--tx)">${r}%</div><div style="font-size:12px;color:var(--m);margin-top:3px">${fF(Math.abs(g))}</div>`;d.onclick=()=>setGR(r,d);ref.appendChild(d);});
+}
+calcGST();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

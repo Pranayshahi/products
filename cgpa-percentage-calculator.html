@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CGPA Calculator India — Convert CGPA to Percentage (CBSE Formula) | CalcAdda.in</title>
+<meta name="description" content="Free CGPA calculator India. Calculate weighted CGPA from subjects with credits. Convert CGPA to percentage using CBSE formula (×9.5) and standard formula (×10).">
+<meta name="keywords" content="CGPA calculator India, CGPA to percentage converter, CBSE CGPA calculator, weighted GPA calculator, grade point average India, CGPA to marks">
+<link rel="canonical" href="https://calcadda.in/cgpa-percentage-calculator.html">
+<meta property="og:title" content="CGPA Calculator India — Convert CGPA to Percentage (CBSE Formula)"><meta property="og:description" content="Free CGPA calculator India. Calculate weighted CGPA from subjects with credits. Convert CGPA to percentage using CBSE formula (×9.5) and standard formula (×10)."><meta property="og:url" content="https://calcadda.in/cgpa-percentage-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › CGPA Calculator</div><h1>🎓 CGPA Calculator India</h1><p>Calculate your CGPA from subjects with credit weighting. Convert to percentage using CBSE formula (×9.5) or standard formula (×10).</p></div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Subjects & grades</div>
+      <div style="display:grid;grid-template-columns:1fr 70px 78px 30px;gap:6px;margin-bottom:6px">
+        <span style="font-size:11px;color:var(--m)">Subject</span><span style="font-size:11px;color:var(--m)">Credits</span><span style="font-size:11px;color:var(--m)">Grade pts</span><span></span>
+      </div>
+      <div id="csubs"></div>
+      <button class="add-sub" onclick="addSub()">+ Add subject</button>
+      <div style="margin-top:16px"><div class="cl" style="margin-bottom:10px">Grade reference</div>
+        <div class="gr"><div class="gc"><div class="gcl">O</div><div class="gcp">10</div></div><div class="gc"><div class="gcl">A+</div><div class="gcp">9</div></div><div class="gc"><div class="gcl">A</div><div class="gcp">8</div></div><div class="gc"><div class="gcl">B+</div><div class="gcp">7</div></div><div class="gc"><div class="gcl">B</div><div class="gcp">6</div></div><div class="gc"><div class="gcl">C</div><div class="gcp">5</div></div><div class="gc"><div class="gcl">P</div><div class="gcp">4</div></div><div class="gc"><div class="gcl">F</div><div class="gcp">0</div></div></div>
+      </div>
+    </div>
+    <div class="card-r">
+      <div class="cl">Your CGPA</div>
+      <div class="big"><div class="bl">CGPA</div><div class="bv" id="cgv" style="color:var(--o);font-size:clamp(48px,10vw,70px);letter-spacing:-3px">—</div><div class="bs">out of 10.0</div></div>
+      <div class="bk">
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--o)"></span>Percentage (CBSE ×9.5)</span><span class="bk-val" style="color:var(--o)" id="cgcb">—</span></div>
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--g)"></span>Percentage (×10)</span><span class="bk-val" style="color:var(--g)" id="cg10">—</span></div>
+        <div class="br"><span class="bk-key">Total credits</span><span class="bk-val" id="cgcr">—</span></div>
+        <div class="br"><span class="bk-key">Weighted points</span><span class="bk-val" id="cgwp">—</span></div>
+        <div class="br"><span class="bk-key">Grade</span><span class="bk-val" style="color:var(--o);font-family:'Syne',sans-serif;font-size:15px" id="cggl">—</span></div>
+      </div>
+      <div style="margin-top:16px;background:var(--s2);border-radius:var(--rad);padding:14px">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--m);margin-bottom:8px">Quick CGPA → % converter</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <input type="number" class="si" id="cgqi" placeholder="CGPA" min="0" max="10" step=".01" oninput="quickCGPA()" style="flex:1;font-size:18px;font-family:'Syne',sans-serif;font-weight:600;text-align:center">
+          <span style="color:var(--m)">→</span>
+          <div style="flex:1;text-align:center"><div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;color:var(--o)" id="cgqo">—</div><div style="font-size:11px;color:var(--m)">CBSE %</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">CGPA — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to convert CGPA to percentage? <span class="fi">+</span></div><div class="fa">CBSE formula: Percentage = CGPA × 9.5. So a CGPA of 9.0 = 85.5%. Many universities use × 10 instead. Enter your CGPA in the quick converter above to see both formulas instantly.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is a good CGPA? <span class="fi">+</span></div><div class="fa">In most Indian universities using a 10-point scale: Above 9.0 = Outstanding (O), 8.0–9.0 = Excellent (A+), 7.0–8.0 = Very Good (A), 6.0–7.0 = Good (B+). Most engineering placements require a minimum of 7.0–7.5 CGPA.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is a credit-weighted CGPA? <span class="fi">+</span></div><div class="fa">CGPA = Σ(Credits × Grade Points) ÷ Total Credits. Subjects with higher credits (like 4-credit lab subjects) contribute more to your CGPA than 2-credit subjects. This calculator weights each subject correctly by its credit hours.</div></div>
+  </div>
+</div>
+<script>
+let sn=0;
+const gm=[{min:9.5,l:'O — Outstanding'},{min:8.5,l:'A+ — Excellent'},{min:7.5,l:'A — Very Good'},{min:6.5,l:'B+ — Good'},{min:5.5,l:'B — Above Average'},{min:4.5,l:'C — Average'},{min:4,l:'P — Pass'},{min:0,l:'F — Fail'}];
+function getGL(c){for(const g of gm)if(c>=g.min)return g.l;return'F — Fail'}
+function addSub(name='',cr=3,gp=8){
+  sn++;const id=sn;const div=document.createElement('div');div.className='sr';div.id='sr'+id;
+  div.innerHTML=`<input type="text" class="si" placeholder="Subject" value="${name}" oninput="calcCGPA()"><input type="number" class="si" placeholder="Cr" min="1" max="10" value="${cr}" oninput="calcCGPA()" style="text-align:center"><input type="number" class="si" placeholder="GP" min="0" max="10" step=".5" value="${gp}" oninput="calcCGPA()" style="text-align:center"><button class="delbtn" onclick="this.parentElement.remove();calcCGPA()">×</button>`;
+  document.getElementById('csubs').appendChild(div);calcCGPA();
+}
+function calcCGPA(){
+  let tc=0,ws=0;document.querySelectorAll('#csubs .sr').forEach(r=>{const ins=r.querySelectorAll('input');const cr=parseFloat(ins[1].value)||0,gp=parseFloat(ins[2].value)||0;tc+=cr;ws+=cr*gp;});
+  if(tc===0){['cgv','cgcb','cg10','cgcr','cgwp','cggl'].forEach(i=>document.getElementById(i).textContent='—');return}
+  const cg=ws/tc;document.getElementById('cgv').textContent=cg.toFixed(2);document.getElementById('cgcb').textContent=(cg*9.5).toFixed(2)+'%';document.getElementById('cg10').textContent=(cg*10).toFixed(2)+'%';document.getElementById('cgcr').textContent=tc;document.getElementById('cgwp').textContent=ws.toFixed(1);document.getElementById('cggl').textContent=getGL(cg);
+}
+function quickCGPA(){const v=parseFloat(document.getElementById('cgqi').value);document.getElementById('cgqo').textContent=isNaN(v)||v<0||v>10?'—':(v*9.5).toFixed(2)+'%'}
+[{n:'Mathematics',c:4,g:9},{n:'Physics',c:4,g:8},{n:'Chemistry',c:3,g:7},{n:'English',c:2,g:9},{n:'Computer Science',c:3,g:10}].forEach(s=>addSub(s.n,s.c,s.g));
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

@@ -1,68 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- ═══ Homepage ═══ -->
-  <url>
-    <loc>https://calcadda.in/</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/"/>
-  </url>
-
-  <!-- ═══ EMI Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/emi-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/emi-calculator"/>
-  </url>
-
-  <!-- ═══ GST Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/gst-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/gst-calculator"/>
-  </url>
-
-  <!-- ═══ Age Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/age-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/age-calculator"/>
-  </url>
-
-  <!-- ═══ Percentage Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/percentage-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/percentage-calculator"/>
-  </url>
-
-  <!-- ═══ SIP Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/sip-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/sip-calculator"/>
-  </url>
-
-  <!-- ═══ CGPA Calculator ═══ -->
-  <url>
-    <loc>https://calcadda.in/cgpa-calculator</loc>
-    <lastmod>2026-03-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="en-IN" href="https://calcadda.in/cgpa-calculator"/>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://calcadda.in/index.html</loc><lastmod>2026-03-30</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://calcadda.in/emi-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calcadda.in/income-tax-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calcadda.in/pf-epf-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calcadda.in/gst-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calcadda.in/sip-mutual-fund-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://calcadda.in/loan-eligibility-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calcadda.in/unit-converter.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calcadda.in/currency-converter.html</loc><lastmod>2026-03-30</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calcadda.in/cgpa-percentage-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://calcadda.in/age-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://calcadda.in/percentage-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://calcadda.in/date-calculator.html</loc><lastmod>2026-03-30</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://calcadda.in/about.html</loc><lastmod>2026-03-30</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://calcadda.in/privacy-policy.html</loc><lastmod>2026-03-30</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://calcadda.in/contact.html</loc><lastmod>2026-03-30</lastmod><changefreq>yearly</changefreq><priority>0.4</priority></url>
 </urlset>

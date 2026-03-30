@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SIP Calculator India 2025 — Mutual Fund Returns & Top Funds | CalcAdda.in</title>
+<meta name="description" content="Free SIP calculator India. Calculate mutual fund SIP returns, total corpus & wealth gained. Compare top funds with direct links to invest. Quant, Nippon, Parag Parikh, HDFC, SBI.">
+<meta name="keywords" content="SIP calculator India, mutual fund SIP returns, best mutual funds 2025 India, SIP investment calculator, Quant small cap, Nippon India, Parag Parikh, HDFC, SBI mutual fund">
+<link rel="canonical" href="https://calcadda.in/sip-mutual-fund-calculator.html">
+<meta property="og:title" content="SIP Calculator India 2025 — Mutual Fund Returns & Top Funds"><meta property="og:description" content="Free SIP calculator India. Calculate mutual fund SIP returns, total corpus & wealth gained. Compare top funds with direct links to invest. Quant, Nippon, Parag Parikh, HDFC, SBI."><meta property="og:url" content="https://calcadda.in/sip-mutual-fund-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › SIP Calculator</div><h1>📈 SIP Calculator India 2025</h1><p>Calculate your Systematic Investment Plan (SIP) returns for any mutual fund. Compare top performing funds with direct invest links.</p></div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Investment details</div>
+      <div class="field"><div class="fh"><span class="fn">Monthly SIP amount</span><span class="fv" id="sa">₹5,000</span></div><input type="range" id="sar" min="500" max="200000" step="500" value="5000" oninput="calcSIP()"><div class="rl"><span>₹500</span><span>₹2L</span></div></div>
+      <div class="field"><div class="fh"><span class="fn">Expected annual return</span><span class="fv" id="sr">12 <span class="u">% p.a.</span></span></div><input type="range" id="srr" min="1" max="35" step="0.5" value="12" oninput="calcSIP()"><div class="rl"><span>1%</span><span>35%</span></div></div>
+      <div class="field"><div class="fh"><span class="fn">Investment period</span><span class="fv" id="st">10 <span class="u">years</span></span></div><input type="range" id="str" min="1" max="40" step="1" value="10" oninput="calcSIP()"><div class="rl"><span>1 yr</span><span>40 yrs</span></div></div>
+      <div class="ib ib-a" style="font-size:12px">💡 Click any fund card below to auto-fill its 5Y CAGR return into the calculator.</div>
+    </div>
+    <div class="card-r">
+      <div class="cl">SIP returns</div>
+      <div class="big"><div class="bl">Total corpus</div><div class="bv" id="scorp" style="color:var(--vl)">₹0</div><div class="bs" id="ssub">after 10 years</div></div>
+      <div class="donut">
+        <svg width="118" height="118" viewBox="0 0 118 118"><circle cx="59" cy="59" r="43" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="13"/><circle id="si" cx="59" cy="59" r="43" fill="none" stroke="var(--b)" stroke-width="13" stroke-dasharray="270.2" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 59 59)" style="transition:stroke-dashoffset .4s"/><circle id="sg" cx="59" cy="59" r="43" fill="none" stroke="var(--vl)" stroke-width="13" stroke-dasharray="270.2" stroke-dashoffset="270.2" stroke-linecap="round" transform="rotate(-90 59 59)" style="transition:stroke-dashoffset .4s"/></svg>
+        <div class="dc"><div class="dc-l">Gain %</div><div class="dc-v" id="sgp" style="color:var(--vl)">0%</div></div>
+      </div>
+      <div class="bk">
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--b)"></span>Amount invested</span><span class="bk-val" style="color:var(--b)" id="sinv">₹0</span></div>
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--vl)"></span>Wealth gained</span><span class="bk-val" style="color:var(--vl)" id="sgain">₹0</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--tx);font-weight:500">Total corpus</span><span class="bk-val" style="color:var(--vl)" id="stot">₹0</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:26px;background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad-xl);padding:24px">
+    <div class="cl">Top mutual funds — click to use their 5Y return rate</div>
+    <p style="font-size:13px;color:var(--m);margin-bottom:4px">Indicative 5Y CAGR returns. Past returns ≠ future performance. Verify on AMFI / Value Research before investing.</p>
+    <div style="display:flex;gap:5px;margin:12px 0 14px;flex-wrap:wrap">
+      <button class="tb on" onclick="flt('all',this)">All</button>
+      <button class="tb" onclick="flt('small',this)">Small Cap</button>
+      <button class="tb" onclick="flt('flexi',this)">Flexi Cap</button>
+      <button class="tb" onclick="flt('mid',this)">Mid/Large</button>
+      <button class="tb" onclick="flt('bal',this)">Balanced</button>
+      <button class="tb" onclick="flt('debt',this)">Debt/Liquid</button>
+    </div>
+    <div class="mf-grid" id="mfgrid"></div>
+    <p style="font-size:11px;color:var(--m);margin-top:12px">⚠️ Not investment advice. Consult a SEBI-registered financial advisor. Mutual fund investments are subject to market risks.</p>
+  </div>
+  <div class="faq">
+    <div class="faq-h">SIP Calculator — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is SIP and how does it work? <span class="fi">+</span></div><div class="fa">SIP (Systematic Investment Plan) lets you invest a fixed amount monthly in a mutual fund. Each instalment buys units at the current NAV. Over time you benefit from rupee-cost averaging — more units when prices are low, fewer when high — smoothing out market volatility.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What return should I expect from a SIP? <span class="fi">+</span></div><div class="fa">Equity mutual funds have historically delivered 12–18% CAGR over long periods (10+ years). Debt funds offer 6–9%. The actual return depends on the fund category, market conditions and your investment horizon. Small-cap funds offer higher potential returns but with higher risk and volatility.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is CAGR vs XIRR for SIP? <span class="fi">+</span></div><div class="fa">CAGR measures the annual growth rate of a lump-sum investment. For SIP (where you invest monthly), XIRR is more accurate as it accounts for the timing of each instalment. Most mutual fund performance disclosures use XIRR for SIP returns.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to invest in these mutual funds? <span class="fi">+</span></div><div class="fa">Click "Visit fund website ↗" on any fund card above to go to the official AMC website. You can also invest through Zerodha Coin, Groww, Kuvera, or MFCentral — all are SEBI-registered platforms for direct mutual fund investments with zero commission.</div></div>
+  </div>
+</div>
+<script>
+const C=270.2;
+const funds=[
+  {n:'Quant Small Cap Fund',cat:'small',cl:'Small Cap · Direct Growth',r1:'38.2%',r3:'34.8%',r5:'26.5%',rb:88,rc:'var(--r)',rbl:'rgba(239,68,68,.15)',rbt:'var(--r)',rl:'Very High Risk',rate:26.5,u:'https://www.quantmutual.com/funds/small-cap'},
+  {n:'Nippon India Small Cap',cat:'small',cl:'Small Cap · Direct Growth',r1:'26.5%',r3:'27.3%',r5:'28.1%',rb:86,rc:'var(--r)',rbl:'rgba(239,68,68,.15)',rbt:'var(--r)',rl:'Very High Risk',rate:28.1,u:'https://www.nipponindiamf.com/NipponIndiaFunds/pages/funds/fund-overview.aspx?categoryId=SC'},
+  {n:'Parag Parikh Flexi Cap',cat:'flexi',cl:'Flexi Cap · Direct Growth',r1:'20.4%',r3:'20.1%',r5:'23.5%',rb:62,rc:'var(--a)',rbl:'rgba(245,158,11,.15)',rbt:'var(--a)',rl:'Moderately High',rate:23.5,u:'https://www.ppfas.com/mutual-fund/parag-parikh-flexi-cap-fund/'},
+  {n:'Mirae Asset Large & Midcap',cat:'mid',cl:'Large & Mid Cap · Direct Growth',r1:'18.2%',r3:'17.6%',r5:'21.4%',rb:60,rc:'var(--a)',rbl:'rgba(245,158,11,.15)',rbt:'var(--a)',rl:'Moderately High',rate:21.4,u:'https://www.miraeassetmf.co.in/Funds/Detail/Mirae-Asset-Large-MidCap-Fund'},
+  {n:'Axis Midcap Fund',cat:'mid',cl:'Mid Cap · Direct Growth',r1:'17.8%',r3:'16.2%',r5:'20.2%',rb:68,rc:'var(--a)',rbl:'rgba(245,158,11,.15)',rbt:'var(--a)',rl:'Moderately High',rate:20.2,u:'https://www.axismf.com/mutual-fund/axis-midcap-fund'},
+  {n:'HDFC Balanced Advantage',cat:'bal',cl:'Balanced Advantage · Direct',r1:'14.3%',r3:'15.2%',r5:'17.1%',rb:42,rc:'var(--g)',rbl:'rgba(16,185,129,.15)',rbt:'var(--g)',rl:'Moderate Risk',rate:17.1,u:'https://www.hdfcfund.com/our-products/balanced-funds/hdfc-balanced-advantage-fund'},
+  {n:'ICICI Pru Equity & Debt',cat:'bal',cl:'Aggressive Hybrid · Direct',r1:'16.1%',r3:'16.8%',r5:'18.3%',rb:52,rc:'var(--a)',rbl:'rgba(245,158,11,.15)',rbt:'var(--a)',rl:'Moderately High',rate:18.3,u:'https://www.icicipruamc.com/mutual-fund/hybrid-funds/icici-prudential-equity-and-debt-fund'},
+  {n:'SBI Liquid Fund',cat:'debt',cl:'Liquid · Direct Growth',r1:'7.4%',r3:'6.8%',r5:'5.9%',rb:10,rc:'var(--b)',rbl:'rgba(59,130,246,.15)',rbt:'var(--b)',rl:'Low Risk',rate:5.9,u:'https://www.sbimf.com/en-us/schemes/liquid/SBI-Liquid-Fund'},
+  {n:'HDFC Short Term Debt',cat:'debt',cl:'Short Duration · Direct',r1:'8.1%',r3:'7.2%',r5:'7.4%',rb:14,rc:'var(--b)',rbl:'rgba(59,130,246,.15)',rbt:'var(--b)',rl:'Low Risk',rate:7.4,u:'https://www.hdfcfund.com/our-products/debt-funds/hdfc-short-term-debt-fund'},
+];
+let mfFilter='all';
+function renderMF(){
+  const grid=document.getElementById('mfgrid');
+  const list=mfFilter==='all'?funds:funds.filter(f=>f.cat===mfFilter);
+  grid.innerHTML=list.map(f=>`<a href="${f.u}" target="_blank" rel="noopener" class="mf-a" onclick="useMF(${f.rate},event)"><div class="mf-n">${f.n}</div><div class="mf-c">${f.cl}</div><div class="mf-ret"><div class="mf-ret"><div class="mf-rv" style="color:var(--g)">${f.r1}</div><div class="mf-rl">1Y</div></div><div class="mf-ret"><div class="mf-rv" style="color:var(--vl)">${f.r3}</div><div class="mf-rl">3Y</div></div><div class="mf-ret"><div class="mf-rv" style="color:var(--a)">${f.r5}</div><div class="mf-rl">5Y CAGR</div></div></div><div class="mf-rb"><div class="mf-rf" style="width:${f.rb}%;background:${f.rc}"></div></div><span class="mf-bd" style="background:${f.rbl};color:${f.rbt}">${f.rl}</span><div class="mf-lk">Visit fund website ↗</div></a>`).join('');
+}
+function flt(c,el){mfFilter=c;document.querySelectorAll('[onclick^="flt"]').forEach(b=>b.classList.remove('on'));el.classList.add('on');renderMF()}
+function useMF(rate,e){e.preventDefault();document.getElementById('srr').value=rate;sf(document.getElementById('srr'),'var(--v)');document.getElementById('sr').innerHTML=rate.toFixed(1)+' <span class="u">% p.a.</span>';calcSIP();document.querySelector('.calc-grid').scrollIntoView({behavior:'smooth'})}
+function calcSIP(){
+  const amt=+document.getElementById('sar').value,rate=+document.getElementById('srr').value,yr=+document.getElementById('str').value,N=yr*12,r=rate/12/100;
+  document.getElementById('sa').textContent=fI(amt);document.getElementById('sr').innerHTML=rate.toFixed(1)+' <span class="u">% p.a.</span>';document.getElementById('st').innerHTML=yr+' <span class="u">years</span>';document.getElementById('ssub').textContent=`after ${yr} years`;
+  sf(document.getElementById('sar'),'var(--v)');sf(document.getElementById('srr'),'var(--v)');sf(document.getElementById('str'),'var(--v)');
+  const corp=r===0?amt*N:amt*(Math.pow(1+r,N)-1)*(1+r)/r,inv=amt*N,gain=corp-inv,gp=Math.round(gain/corp*100),ip=100-gp;
+  document.getElementById('scorp').textContent=fI(corp);document.getElementById('sinv').textContent=fI(inv);document.getElementById('sgain').textContent=fI(gain);document.getElementById('stot').textContent=fI(corp);document.getElementById('sgp').textContent=gp+'%';
+  document.getElementById('si').setAttribute('stroke-dashoffset',C-ip/100*C);document.getElementById('sg').setAttribute('stroke-dashoffset',C-gp/100*C);
+}
+renderMF();calcSIP();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Date Calculator India — Date Difference, Add Days, Day of Week Finder | CalcAdda.in</title>
+<meta name="description" content="Free date calculator. Find the difference between two dates in days, weeks and months. Add or subtract days from any date. Find the day of week for any date.">
+<meta name="keywords" content="date calculator India, date difference calculator, add days to date, day of week calculator, how many days between two dates, days calculator India">
+<link rel="canonical" href="https://calcadda.in/date-calculator.html">
+<meta property="og:title" content="Date Calculator India — Date Difference, Add Days, Day of Week Finder"><meta property="og:description" content="Free date calculator. Find the difference between two dates in days, weeks and months. Add or subtract days from any date. Find the day of week for any date."><meta property="og:url" content="https://calcadda.in/date-calculator.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Date Calculator</div><h1>🗓️ Date Calculator</h1><p>Find the difference between two dates, add or subtract days from a date, or find which day of the week any date falls on.</p></div>
+  <div style="display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap">
+    <button class="ttab on" onclick="setTM(0,this)">Date difference</button>
+    <button class="ttab" onclick="setTM(1,this)">Add / Subtract days</button>
+    <button class="ttab" onclick="setTM(2,this)">Day of week finder</button>
+  </div>
+  <div id="tm0" class="tp on">
+    <div class="calc-grid">
+      <div class="card"><div class="cl">Two dates</div><div class="field"><label class="lbl">Start date</label><input type="date" class="inp" id="ds1" oninput="calcD0()"></div><div class="field"><label class="lbl">End date</label><input type="date" class="inp" id="de1" oninput="calcD0()"></div></div>
+      <div class="card-r"><div class="cl">Difference</div><div class="big"><div class="bl">Total days</div><div class="bv" id="d0d" style="color:var(--p)">—</div></div><div class="bk"><div class="br"><span class="bk-key">Years</span><span class="bk-val" id="d0y">—</span></div><div class="br"><span class="bk-key">Months</span><span class="bk-val" id="d0m">—</span></div><div class="br"><span class="bk-key">Weeks</span><span class="bk-val" id="d0w">—</span></div><div class="br"><span class="bk-key">Days remaining</span><span class="bk-val" id="d0dr">—</span></div><div class="br"><span class="bk-key">Working days (approx)</span><span class="bk-val" id="d0wd">—</span></div></div></div>
+    </div>
+  </div>
+  <div id="tm1" class="tp">
+    <div class="calc-grid">
+      <div class="card"><div class="cl">Date arithmetic</div><div class="field"><label class="lbl">Start date</label><input type="date" class="inp" id="ds2" oninput="calcD1()"></div><div class="field"><label class="lbl">Number of days</label><input type="number" class="inp" id="dn2" value="30" oninput="calcD1()"></div><div class="field"><div class="tg"><button class="ttab on" id="dadd" onclick="setD1m('add')">Add days</button><button class="ttab" id="dsub" onclick="setD1m('sub')">Subtract days</button></div></div></div>
+      <div class="card-r"><div class="cl">Result date</div><div class="big"><div class="bl">New date</div><div class="bv" id="d1r" style="color:var(--p);font-size:clamp(20px,4vw,34px);letter-spacing:-.3px">—</div></div><div class="bk"><div class="br"><span class="bk-key">Day of week</span><span class="bk-val" id="d1dow">—</span></div><div class="br"><span class="bk-key">Days from today</span><span class="bk-val" id="d1ft">—</span></div></div></div>
+    </div>
+  </div>
+  <div id="tm2" class="tp">
+    <div class="calc-grid">
+      <div class="card"><div class="cl">Find day of week</div><div class="field"><label class="lbl">Enter any date</label><input type="date" class="inp" id="ddf" oninput="calcD2()"></div></div>
+      <div class="card-r"><div class="cl">Result</div><div class="big"><div class="bl">Day of week</div><div class="bv" id="d2day" style="color:var(--p);font-size:clamp(24px,5vw,42px)">—</div></div><div class="bk"><div class="br"><span class="bk-key">Full date</span><span class="bk-val" id="d2date">—</span></div><div class="br"><span class="bk-key">Day of year</span><span class="bk-val" id="d2doy">—</span></div><div class="br"><span class="bk-key">Week number</span><span class="bk-val" id="d2wk">—</span></div><div class="br"><span class="bk-key">Days until year end</span><span class="bk-val" id="d2ye">—</span></div></div></div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">Date Calculator — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How many days between two dates? <span class="fi">+</span></div><div class="fa">Use the "Date difference" tab. Enter start and end dates, and the calculator instantly shows the total days, weeks, months and working days between them.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What day of the week is a specific date? <span class="fi">+</span></div><div class="fa">Use the "Day of week finder" tab. Enter any date and it tells you the day of the week, day of the year, week number, and days remaining in the year.</div></div>
+  </div>
+</div>
+<script>
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+let d1mode='add';
+function setTM(m,el){document.querySelectorAll('.ttab').forEach(b=>b.classList.remove('on'));el.classList.add('on');document.querySelectorAll('.tp').forEach(p=>p.classList.remove('on'));document.getElementById('tm'+m).classList.add('on')}
+function setD1m(m){d1mode=m;document.getElementById('dadd').classList.toggle('on',m==='add');document.getElementById('dsub').classList.toggle('on',m==='sub');calcD1()}
+function initDate(){const t=new Date().toISOString().split('T')[0];['ds1','de1','ds2','ddf'].forEach(id=>{if(!document.getElementById(id).value)document.getElementById(id).value=t})}
+function calcD0(){
+  const s=new Date(document.getElementById('ds1').value),e=new Date(document.getElementById('de1').value);
+  if(!s||!e||isNaN(s)||isNaN(e))return;const sign=e>=s?1:-1;const [a,b]=e>=s?[s,e]:[e,s];
+  const diff=Math.round((b-a)/86400000);let y=b.getFullYear()-a.getFullYear(),m=b.getMonth()-a.getMonth(),d=b.getDate()-a.getDate();
+  if(d<0){m--;d+=new Date(b.getFullYear(),b.getMonth(),0).getDate()}if(m<0){y--;m+=12}
+  document.getElementById('d0d').textContent=(sign<0?'-':'')+diff.toLocaleString('en-IN');
+  document.getElementById('d0y').textContent=y+' years';document.getElementById('d0m').textContent=m+' months';document.getElementById('d0w').textContent=Math.floor(diff/7)+' weeks';document.getElementById('d0dr').textContent=d+' days';document.getElementById('d0wd').textContent=Math.round(diff*5/7).toLocaleString('en-IN')+' days';
+}
+function calcD1(){
+  const s=new Date(document.getElementById('ds2').value),n=+document.getElementById('dn2').value||0;if(!s||isNaN(s))return;const res=new Date(s);d1mode==='add'?res.setDate(res.getDate()+n):res.setDate(res.getDate()-n);
+  const today=new Date(),diff=Math.round((res-today)/86400000);
+  document.getElementById('d1r').textContent=res.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('d1dow').textContent=DAYS[res.getDay()];document.getElementById('d1ft').textContent=diff===0?'Today':(diff>0?diff+' days from today':Math.abs(diff)+' days ago');
+}
+function calcD2(){
+  const d=new Date(document.getElementById('ddf').value);if(!d||isNaN(d))return;
+  const start=new Date(d.getFullYear(),0,0),doy=Math.floor((d-start)/86400000);
+  const oneJan=new Date(d.getFullYear(),0,1),wk=Math.ceil(((d-oneJan)/86400000+oneJan.getDay()+1)/7);
+  const yearEnd=new Date(d.getFullYear(),11,31),dye=Math.round((yearEnd-d)/86400000);
+  document.getElementById('d2day').textContent=DAYS[d.getDay()];document.getElementById('d2date').textContent=d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});document.getElementById('d2doy').textContent=doy+' of 365';document.getElementById('d2wk').textContent='Week '+wk;document.getElementById('d2ye').textContent=dye+' days';
+}
+initDate();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

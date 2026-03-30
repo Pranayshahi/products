@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Unit Converter India — Length, Weight, Temperature, Area & Speed | CalcAdda.in</title>
+<meta name="description" content="Free unit converter. Convert length, weight, temperature, area and speed instantly. All unit conversions shown at once. Easy to use, no signup needed.">
+<meta name="keywords" content="unit converter India, length converter, weight converter, temperature converter Celsius Fahrenheit, area converter sqft sqm, speed converter kmph mph">
+<link rel="canonical" href="https://calcadda.in/unit-converter.html">
+<meta property="og:title" content="Unit Converter India — Length, Weight, Temperature, Area & Speed"><meta property="og:description" content="Free unit converter. Convert length, weight, temperature, area and speed instantly. All unit conversions shown at once. Easy to use, no signup needed."><meta property="og:url" content="https://calcadda.in/unit-converter.html"><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl">EMI</a>
+    <a href="income-tax-calculator.html" class="nl">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl">Unit Converter</a>
+    <a href="currency-converter.html" class="nl">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl">CGPA</a>
+    <a href="age-calculator.html" class="nl">Age</a>
+    <a href="percentage-calculator.html" class="nl">Percentage</a>
+    <a href="date-calculator.html" class="nl">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl">About</a>
+    <a href="contact.html" class="nl">Contact</a>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero"><div class="bc"><a href="index.html">Home</a> › Unit Converter</div><h1>📐 Unit Converter</h1><p>Convert between all common units instantly — length, weight, temperature, area and speed. All conversions shown at a glance.</p></div>
+  <div class="cat-tabs">
+    <button class="ctab on" onclick="setCat('length',this)">📏 Length</button>
+    <button class="ctab" onclick="setCat('weight',this)">⚖️ Weight</button>
+    <button class="ctab" onclick="setCat('temp',this)">🌡️ Temperature</button>
+    <button class="ctab" onclick="setCat('area',this)">🔲 Area</button>
+    <button class="ctab" onclick="setCat('speed',this)">💨 Speed</button>
+  </div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Convert value</div>
+      <div class="field"><label class="lbl">Enter value</label><input type="number" class="inp" id="uval" value="1" oninput="calcUnit()"></div>
+      <div class="field"><label class="lbl">From unit</label><select class="inp" id="ufrom" onchange="calcUnit()"></select></div>
+      <div class="field"><label class="lbl">To unit</label><select class="inp" id="uto" onchange="calcUnit()"></select></div>
+      <div style="background:var(--s1);border:1px solid var(--b1);border-radius:var(--rad);padding:16px;margin-top:4px;text-align:center">
+        <div style="font-size:11px;color:var(--m);margin-bottom:6px;text-transform:uppercase;letter-spacing:.08em">Result</div>
+        <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:700;letter-spacing:-1px;color:var(--t)" id="ures">—</div>
+        <div style="font-size:12px;color:var(--m);margin-top:4px" id="uresub">—</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="cl">All conversions</div>
+      <div class="unit-all" id="uall"></div>
+    </div>
+  </div>
+  <div class="faq">
+    <div class="faq-h">Unit Converter — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How many feet in 1 meter? <span class="fi">+</span></div><div class="fa">1 meter = 3.28084 feet. Select Length category, set From = m, To = foot, enter 1.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is 1 acre in square feet? <span class="fi">+</span></div><div class="fa">1 acre = 43,560 square feet. Select Area category, set From = acre, To = sqft, enter 1.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">How to convert Celsius to Fahrenheit? <span class="fi">+</span></div><div class="fa">F = C × 9/5 + 32. Select Temperature, From = C, To = F. For example, 37°C (body temp) = 98.6°F.</div></div>
+  </div>
+</div>
+<script>
+const units={length:{m:1,km:.001,cm:100,mm:1000,inch:39.3701,foot:3.28084,yard:1.09361,mile:6.21371e-4},weight:{kg:1,g:1000,mg:1e6,lb:2.20462,oz:35.274,tonne:.001,quintal:.01},temp:{C:null,F:null,K:null},area:{sqm:1,sqkm:1e-6,sqcm:10000,sqft:10.7639,sqyd:1.19599,acre:2.47105e-4,hectare:.0001},speed:{mps:1,'km/h':3.6,mph:2.23694,knot:1.94384,'ft/s':3.28084}};
+let ucat='length';
+function setCat(c,el){ucat=c;document.querySelectorAll('.cat-tabs .ctab').forEach(b=>b.classList.remove('on'));el.classList.add('on');populateSelects();calcUnit()}
+function populateSelects(){
+  const keys=Object.keys(units[ucat]);
+  ['ufrom','uto'].forEach((id,i)=>{const sel=document.getElementById(id);sel.innerHTML='';keys.forEach(k=>{const o=document.createElement('option');o.value=k;o.textContent=k;sel.appendChild(o)});if(i===1&&keys.length>1)sel.value=keys[1];});
+}
+function conv(v,f,t){
+  if(ucat==='temp'){let c;if(f==='C')c=v;else if(f==='F')c=(v-32)*5/9;else c=v-273.15;if(t==='C')return c;if(t==='F')return c*9/5+32;return c+273.15;}
+  return v/units[ucat][f]*units[ucat][t];
+}
+function fmt(v){return Math.abs(v)<.0001||Math.abs(v)>9999999?v.toExponential(4):(+v.toFixed(6)).toString()}
+function calcUnit(){
+  const v=+document.getElementById('uval').value,f=document.getElementById('ufrom').value,t=document.getElementById('uto').value;
+  const r=conv(v,f,t);document.getElementById('ures').textContent=fmt(r)+' '+t;document.getElementById('uresub').textContent=`${v} ${f} = ${fmt(r)} ${t}`;
+  const all=document.getElementById('uall');all.innerHTML='';
+  Object.keys(units[ucat]).forEach(k=>{const val=conv(v,f,k);const d=document.createElement('div');d.className='ua-c';d.style.borderColor=k===t?'var(--t)':'var(--b1)';d.innerHTML=`<div class="ua-v" style="${k===t?'color:var(--t)':''}">${fmt(val)}</div><div class="ua-l">${k}</div>`;all.appendChild(d);});
+}
+populateSelects();calcUnit();
+</script>
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand"><a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a><p>Free calculators built for India. No signup, no clutter.</p><p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p></div>
+      <div class="fc-col"><h4>Finance</h4><a href="emi-calculator.html">EMI Calculator</a><a href="income-tax-calculator.html">Income Tax</a><a href="pf-epf-calculator.html">PF / EPF</a><a href="gst-calculator.html">GST Calculator</a><a href="sip-mutual-fund-calculator.html">SIP Calculator</a><a href="loan-eligibility-calculator.html">Loan Eligibility</a></div>
+      <div class="fc-col"><h4>General</h4><a href="unit-converter.html">Unit Converter</a><a href="currency-converter.html">Currency</a><a href="cgpa-percentage-calculator.html">CGPA</a><a href="age-calculator.html">Age Calculator</a><a href="percentage-calculator.html">Percentage</a><a href="date-calculator.html">Date Calculator</a></div>
+      <div class="fc-col"><h4>Pages</h4><a href="about.html">About CalcAdda</a><a href="privacy-policy.html">Privacy Policy</a><a href="contact.html">Contact Us</a></div>
+    </div>
+    <div class="fb"><span>© 2026 CalcAdda.in · All calculators are free</span><div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+  </div>
+</footer>
+<script>
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+</body>
+</html>

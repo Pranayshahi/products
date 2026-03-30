@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Income Tax Calculator FY 2025-26 — Old vs New Regime India | CalcAdda.in</title>
+<meta name="description" content="Free income tax calculator FY 2025-26. Compare Old vs New regime, calculate tax payable, monthly take-home. Download Excel. Updated for Budget 2025.">
+<meta name="keywords" content="income tax calculator 2025-26, new tax regime calculator, old vs new regime India, tax calculator FY2025-26, 80C HRA deduction, section 87A rebate">
+<link rel="canonical" href="https://calcadda.in/income-tax-calculator.html">
+<meta property="og:title" content="Income Tax Calculator FY 2025-26 — Old vs New Regime India | CalcAdda.in">
+<meta property="og:description" content="Free income tax calculator FY 2025-26. Compare Old vs New regime, calculate tax payable, monthly take-home. Download Excel. Updated for Budget 2025.">
+<meta property="og:url" content="https://calcadda.in/income-tax-calculator.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <a class="logo" href="/index.html">
+    <div class="logo-mark">CA</div>
+    <span class="logo-text">Calc<em>Adda</em></span>
+  </a>
+  <div class="nav-scroll">
+    <a href="emi-calculator.html" class="nl" data-page="emi">EMI</a>
+    <a href="income-tax-calculator.html" class="nl" data-page="tax">Income Tax</a>
+    <a href="pf-epf-calculator.html" class="nl" data-page="pf">PF / EPF</a>
+    <a href="gst-calculator.html" class="nl" data-page="gst">GST</a>
+    <a href="sip-mutual-fund-calculator.html" class="nl" data-page="sip">SIP</a>
+    <a href="loan-eligibility-calculator.html" class="nl" data-page="loan">Loan Eligibility</a>
+    <span class="ns"></span>
+    <a href="unit-converter.html" class="nl" data-page="unit">Unit Converter</a>
+    <a href="currency-converter.html" class="nl" data-page="curr">Currency</a>
+    <a href="cgpa-percentage-calculator.html" class="nl" data-page="cgpa">CGPA</a>
+    <a href="age-calculator.html" class="nl" data-page="age">Age</a>
+    <a href="percentage-calculator.html" class="nl" data-page="pct">Percentage</a>
+    <a href="date-calculator.html" class="nl" data-page="date">Date</a>
+    <span class="ns"></span>
+    <a href="about.html" class="nl" data-page="about">About</a>
+    <a href="contact.html" class="nl" data-page="contact">Contact</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <div class="bc"><a href="index.html">Home</a> › Income Tax Calculator</div>
+    <h1>📊 Income Tax Calculator FY 2025-26</h1>
+    <p>Compare Old vs New tax regime. Calculate exact tax payable, monthly take-home, and download a detailed Excel report. Updated for Budget 2025.</p>
+  </div>
+  <div class="calc-grid">
+    <div class="card">
+      <div class="cl">Your income & deductions</div>
+      <div class="field"><label class="lbl">Annual gross income (₹)</label><input type="number" class="inp" id="ti" value="1200000" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl">Section 80C investments (max ₹1,50,000)</label><input type="number" class="inp" id="t80c" value="150000" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl">Section 80D health insurance (₹)</label><input type="number" class="inp" id="t80d" value="25000" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl">HRA exemption (₹)</label><input type="number" class="inp" id="thra" value="120000" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl">NPS 80CCD(1B) additional (max ₹50,000)</label><input type="number" class="inp" id="tnps" value="0" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl">Other deductions (₹)</label><input type="number" class="inp" id="toth" value="0" oninput="calcTax()"></div>
+      <div class="field"><label class="lbl" style="margin-bottom:7px;display:block">Age group</label>
+        <div class="tg"><button class="tb on" onclick="setAge(false,this)">Below 60</button><button class="tb" onclick="setAge(true,this)">60+ Senior</button></div>
+      </div>
+    </div>
+    <div class="card-r">
+      <div class="cl">Tax comparison</div>
+      <div style="display:flex;gap:6px;margin-bottom:16px">
+        <button class="reg-tab on" id="nt" onclick="setReg('new',this)">New Regime</button>
+        <button class="reg-tab" id="ot" onclick="setReg('old',this)">Old Regime</button>
+      </div>
+      <div class="big">
+        <div class="bl" id="txlbl">Tax payable (New Regime)</div>
+        <div class="bv" id="txv" style="color:var(--r)">₹0</div>
+        <div class="bs" id="txeff">Effective rate: 0%</div>
+      </div>
+      <div class="bk">
+        <div class="br"><span class="bk-key">Gross income</span><span class="bk-val" id="tx-g">₹0</span></div>
+        <div class="br"><span class="bk-key">Standard deduction</span><span class="bk-val" id="tx-s">₹0</span></div>
+        <div class="br"><span class="bk-key">Other deductions</span><span class="bk-val" id="tx-d">₹0</span></div>
+        <div class="br"><span class="bk-key">Taxable income</span><span class="bk-val" id="tx-ti">₹0</span></div>
+        <div class="br"><span class="bk-key"><span class="dot" style="background:var(--r)"></span>Tax before cess</span><span class="bk-val" style="color:var(--r)" id="tx-pre">₹0</span></div>
+        <div class="br"><span class="bk-key">Health & Edu cess (4%)</span><span class="bk-val" id="tx-cs">₹0</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--tx);font-weight:500">Net tax payable</span><span class="bk-val" style="color:var(--r)" id="tx-net">₹0</span></div>
+        <div class="br"><span class="bk-key" style="color:var(--g)">Monthly take-home</span><span class="bk-val" style="color:var(--g)" id="tx-th">₹0</span></div>
+      </div>
+      <div id="tx-tip" style="display:none" class="ib mt8"></div>
+      <button class="dlbtn" onclick="dlTax()">⬇ Download Excel Report (.xlsx)</button>
+    </div>
+  </div>
+
+  <div style="margin-top:22px;background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad-xl);padding:22px">
+    <div class="cl">Tax slab reference — FY 2025-26</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div><div style="font-size:13px;font-weight:500;color:var(--tx);margin-bottom:8px;font-family:'Syne',sans-serif">New Regime (default)</div>
+        <table class="slab"><thead><tr><th>Income slab</th><th>Rate</th></tr></thead><tbody>
+          <tr><td>Up to ₹4,00,000</td><td>Nil</td></tr>
+          <tr><td>₹4L – ₹8L</td><td>5%</td></tr>
+          <tr><td>₹8L – ₹12L</td><td>10%</td></tr>
+          <tr><td>₹12L – ₹16L</td><td>15%</td></tr>
+          <tr><td>₹16L – ₹20L</td><td>20%</td></tr>
+          <tr><td>₹20L – ₹24L</td><td>25%</td></tr>
+          <tr><td>Above ₹24L</td><td>30%</td></tr>
+        </tbody></table>
+        <div class="ib ib-g mt8" style="font-size:12px">Rebate 87A: Zero tax if total income ≤ ₹12L</div>
+      </div>
+      <div><div style="font-size:13px;font-weight:500;color:var(--tx);margin-bottom:8px;font-family:'Syne',sans-serif">Old Regime</div>
+        <table class="slab"><thead><tr><th>Income slab</th><th>Rate</th></tr></thead><tbody>
+          <tr><td>Up to ₹2,50,000</td><td>Nil</td></tr>
+          <tr><td>₹2.5L – ₹5L</td><td>5%</td></tr>
+          <tr><td>₹5L – ₹10L</td><td>20%</td></tr>
+          <tr><td>Above ₹10L</td><td>30%</td></tr>
+        </tbody></table>
+        <div class="ib ib-a mt8" style="font-size:12px">Rebate 87A: Zero tax if taxable income ≤ ₹5L · Standard deduction ₹50,000</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-h">Income Tax — FAQs</div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">Which regime is better — Old or New? <span class="fi">+</span></div><div class="fa">New Regime is better if your income is up to ₹12L (zero tax via 87A rebate) or total deductions are under ₹3.75L. Old Regime benefits those with large deductions like 80C + HRA + 80D. This calculator auto-compares both for you.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">Is income up to ₹12L tax-free in 2025-26? <span class="fi">+</span></div><div class="fa">Yes, under the New Tax Regime. After the standard deduction of ₹75,000, the taxable income is ₹11,25,000, and the Section 87A rebate of ₹60,000 brings the net tax to zero. But if your income exceeds ₹12L, full tax applies on the entire taxable income.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">What is the standard deduction in FY 2025-26? <span class="fi">+</span></div><div class="fa">₹75,000 under New Regime and ₹50,000 under Old Regime. Applied automatically to all salaried employees and pensioners — no proof required.</div></div>
+    <div class="faq-item"><div class="fq" onclick="faq(this)">Can I switch between regimes each year? <span class="fi">+</span></div><div class="fa">Salaried employees can switch every year at ITR filing time. Business owners/professionals with business income can only switch once (from old to new) and cannot revert.</div></div>
+  </div>
+</div>
+<script>
+let txReg='new',txSnr=false;
+function setReg(r,el){txReg=r;document.getElementById('nt').classList.toggle('on',r==='new');document.getElementById('ot').classList.toggle('on',r==='old');calcTax()}
+function setAge(s,el){txSnr=s;document.querySelectorAll('.card .tg .tb').forEach(b=>b.classList.remove('on'));el.classList.add('on');calcTax()}
+function taxNew(inc){
+  const sl=[[400000,0],[800000,.05],[1200000,.1],[1600000,.15],[2000000,.2],[2400000,.25],[Infinity,.3]];
+  let tax=0,prev=0;for(const[lim,rt]of sl){const u=Math.min(inc,lim);if(u>prev)tax+=(u-prev)*rt;prev=lim;if(inc<=lim)break}
+  if(inc<=1200000)tax=0;return tax;
+}
+function taxOld(inc){
+  const ex=txSnr?300000:250000;const sl=[[ex,0],[500000,.05],[1000000,.2],[Infinity,.3]];
+  let tax=0,prev=0;for(const[lim,rt]of sl){const u=Math.min(inc,lim);if(u>prev)tax+=(u-prev)*rt;prev=lim;if(inc<=lim)break}
+  if(inc<=500000)tax=0;return tax;
+}
+function calcTax(){
+  const g=+document.getElementById('ti').value||0;
+  const c80c=Math.min(+document.getElementById('t80c').value||0,150000);
+  const c80d=+document.getElementById('t80d').value||0;
+  const hra=+document.getElementById('thra').value||0;
+  const nps=Math.min(+document.getElementById('tnps').value||0,50000);
+  const oth=+document.getElementById('toth').value||0;
+  let tax,ti,std,ded;
+  if(txReg==='new'){std=75000;ded=0;ti=Math.max(0,g-std);tax=taxNew(ti);document.getElementById('txlbl').textContent='Tax payable (New Regime)';}
+  else{std=50000;ded=c80c+c80d+hra+nps+oth;ti=Math.max(0,g-std-ded);tax=taxOld(ti);document.getElementById('txlbl').textContent='Tax payable (Old Regime)';}
+  const cs=tax*.04,net=tax+cs,eff=g>0?(net/g*100):0;
+  document.getElementById('txv').textContent=fF(net);
+  document.getElementById('txeff').textContent=`Effective rate: ${eff.toFixed(1)}%`;
+  document.getElementById('tx-g').textContent=fF(g);
+  document.getElementById('tx-s').textContent=fF(std);
+  document.getElementById('tx-d').textContent=fF(ded);
+  document.getElementById('tx-ti').textContent=fF(ti);
+  document.getElementById('tx-pre').textContent=fF(tax);
+  document.getElementById('tx-cs').textContent=fF(cs);
+  document.getElementById('tx-net').textContent=fF(net);
+  document.getElementById('tx-th').textContent=fF((g-net)/12);
+  const nNew=taxNew(Math.max(0,g-75000))*1.04;
+  const nOld=taxOld(Math.max(0,g-50000-c80c-c80d-hra-nps-oth))*1.04;
+  const diff=nOld-nNew,tip=document.getElementById('tx-tip');
+  if(Math.abs(diff)>500){tip.style.display='block';const better=diff>0?'New':'Old';tip.className='ib mt8'+(diff>0?' ib-g':' ib-a');tip.textContent=`💡 ${better} Regime saves ₹${Math.round(Math.abs(diff)).toLocaleString('en-IN')}/year (₹${Math.round(Math.abs(diff)/12).toLocaleString('en-IN')}/month)`;}else{tip.style.display='none'}
+}
+function dlTax(){
+  const g=+document.getElementById('ti').value||0,c80c=Math.min(+document.getElementById('t80c').value||0,150000),c80d=+document.getElementById('t80d').value||0,hra=+document.getElementById('thra').value||0,nps=Math.min(+document.getElementById('tnps').value||0,50000),oth=+document.getElementById('toth').value||0;
+  const nti=Math.max(0,g-75000),newT=taxNew(nti),newC=newT*.04,newN=newT+newC;
+  const oti=Math.max(0,g-50000-c80c-c80d-hra-nps-oth),oldT=taxOld(oti),oldC=oldT*.04,oldN=oldT+oldC;
+  const d=[
+    ['CalcAdda.in — Income Tax Comparison FY 2025-26'],['Generated: '+new Date().toLocaleDateString('en-IN')],[''],
+    ['Parameter','New Regime (₹)','Old Regime (₹)'],
+    ['Gross Income',g,g],['Standard Deduction',75000,50000],['80C',0,c80c],['80D',0,c80d],['HRA',0,hra],['NPS',0,nps],['Other',0,oth],
+    ['Taxable Income',nti,oti],['Income Tax',newT,oldT],['Cess 4%',newC,oldC],['Net Tax',newN,oldN],
+    ['Monthly Take-home',(g-newN)/12,(g-oldN)/12],['Effective Rate %',g>0?(newN/g*100).toFixed(2):0,g>0?(oldN/g*100).toFixed(2):0],
+    [''],['RECOMMENDED',newN<=oldN?'New Regime ✓':'Old Regime ✓',''],['Annual Savings',Math.abs(oldN-newN),''],
+  ];
+  const wb=XLSX.utils.book_new(),ws=XLSX.utils.aoa_to_sheet(d);ws['!cols']=[{wch:28},{wch:18},{wch:18}];
+  XLSX.utils.book_append_sheet(wb,ws,'Tax FY2025-26');XLSX.writeFile(wb,'CalcAdda-Tax-FY2025-26.xlsx');
+}
+calcTax();
+</script>
+
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div class="fc-brand">
+        <a class="logo" href="index.html"><div class="logo-mark">CA</div><span class="logo-text">Calc<em>Adda</em></span></a>
+        <p>Free calculators built for India. No signup, no clutter, no paywalls.</p>
+        <p style="margin-top:6px;font-size:11px">📍 calcadda.in · Made in India 🇮🇳</p>
+      </div>
+      <div class="fc-col"><h4>Finance</h4>
+        <a href="emi-calculator.html">EMI Calculator</a>
+        <a href="income-tax-calculator.html">Income Tax Calculator</a>
+        <a href="pf-epf-calculator.html">PF / EPF Calculator</a>
+        <a href="gst-calculator.html">GST Calculator</a>
+        <a href="sip-mutual-fund-calculator.html">SIP Calculator</a>
+        <a href="loan-eligibility-calculator.html">Loan Eligibility</a>
+      </div>
+      <div class="fc-col"><h4>General</h4>
+        <a href="unit-converter.html">Unit Converter</a>
+        <a href="currency-converter.html">Currency Converter</a>
+        <a href="cgpa-percentage-calculator.html">CGPA Calculator</a>
+        <a href="age-calculator.html">Age Calculator</a>
+        <a href="percentage-calculator.html">Percentage Calculator</a>
+        <a href="date-calculator.html">Date Calculator</a>
+      </div>
+      <div class="fc-col"><h4>Company</h4>
+        <a href="about.html">About CalcAdda</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div class="fb">
+      <span>© 2026 CalcAdda.in · All calculators are free</span>
+      <div class="fb-r"><a href="privacy-policy.html">Privacy</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── Helpers ──────────────────────────────────────────
+function fI(n){n=Math.round(n);if(n>=10000000)return'₹'+(n/10000000).toFixed(2)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(2)+' L';return'₹'+n.toLocaleString('en-IN')}
+function fF(n){return'₹'+Math.round(n).toLocaleString('en-IN')}
+function fN(n){return Math.round(n).toLocaleString('en-IN')}
+function sf(el,c){const p=((+el.value-+el.min)/(+el.max-+el.min))*100;el.style.background=`linear-gradient(to right,${c||'var(--v)'} ${p}%,var(--track) ${p}%)`}
+function faq(el){el.parentElement.classList.toggle('open')}
+// Highlight active nav link
+(function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
+</script>
+
+</body>
+</html>
