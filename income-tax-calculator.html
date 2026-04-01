@@ -15,6 +15,26 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%237c3aed'/><text x='4' y='23' font-family='sans-serif' font-size='16' fill='white' font-weight='bold'>CA</text></svg>">
 <link rel="stylesheet" href="style.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type":"WebApplication","name":"Income Tax Calculator India FY 2025-26","url":"https://calcadda.in/income-tax-calculator.html","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"featureList":["Old Regime Calculator","New Regime Calculator","Tax Comparison","Excel Download","Section 80C","HRA Exemption"]},{
+  "@type": "BreadcrumbList",
+  "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://calcadda.in/index.html"},
+{"@type":"ListItem","position":2,"name":"Income Tax Calculator","item":"https://calcadda.in/income-tax-calculator.html"}]
+},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the income tax slab for FY 2025-26?","acceptedAnswer":{"@type":"Answer","text":"New Regime: 0% up to ₹4L, 5% ₹4L-8L, 10% ₹8L-12L, 15% ₹12L-16L, 20% ₹16L-20L, 25% ₹20L-24L, 30% above ₹24L. Old Regime: 0% up to ₹2.5L, 5% ₹2.5L-5L, 20% ₹5L-10L, 30% above ₹10L."}},{"@type":"Question","name":"Is income up to 12 lakh tax free in 2025?","acceptedAnswer":{"@type":"Answer","text":"Yes, under the New Tax Regime for FY 2025-26. After standard deduction of ₹75,000, taxable income is ₹11.25L and the Section 87A rebate of ₹60,000 makes net tax zero."}},{"@type":"Question","name":"What is the standard deduction for salaried employees in 2025-26?","acceptedAnswer":{"@type":"Answer","text":"₹75,000 under New Regime and ₹50,000 under Old Regime for FY 2025-26. Applied automatically with no proof required."}},{"@type":"Question","name":"Which tax regime is better for me?","acceptedAnswer":{"@type":"Answer","text":"New Regime is better if your total deductions are below ₹3.75 lakh or your income is up to ₹12 lakh. Old Regime benefits those with large deductions like 80C + HRA + 80D exceeding ₹3.75L."}},{"@type":"Question","name":"What is Section 87A rebate?","acceptedAnswer":{"@type":"Answer","text":"Section 87A provides a tax rebate of up to ₹12,500 under Old Regime (if taxable income ≤ ₹5L) and ₹60,000 under New Regime (if total income ≤ ₹12L), effectively making tax zero."}}]},{
+  "@type": "Organization",
+  "@id": "https://calcadda.in/#org",
+  "name": "CalcAdda",
+  "url": "https://calcadda.in/",
+  "logo": {"@type":"ImageObject","url":"https://calcadda.in/logo.png"},
+  "sameAs": []
+}
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav">
@@ -228,5 +248,44 @@ function faq(el){el.parentElement.classList.toggle('open')}
 (function(){const p=location.pathname.split('/').pop();document.querySelectorAll('.nl').forEach(a=>{if(a.getAttribute('href')===p)a.classList.add('active')})})();
 </script>
 
+
+<section style="margin-top:32px;background:var(--s2);border:1px solid var(--b1);border-radius:var(--rad-xl);padding:28px">
+  <h2 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:12px">Income Tax Guide — FY 2025-26</h2>
+
+  <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin:0 0 10px">Key changes in Budget 2025</h3>
+  <ul style="font-size:14px;color:var(--m);line-height:1.9;padding-left:20px;margin-bottom:16px">
+    <li>New Regime standard deduction increased to <strong style="color:var(--tx)">₹75,000</strong> (from ₹50,000)</li>
+    <li>Section 87A rebate raised to <strong style="color:var(--tx)">₹60,000</strong> — zero tax on income up to ₹12 lakh</li>
+    <li>New tax slab of <strong style="color:var(--tx)">25% for ₹20L–₹24L</strong> introduced</li>
+    <li>New Regime is now the <strong style="color:var(--tx)">default regime</strong> for all taxpayers</li>
+    <li>NPS employer contribution deduction raised to <strong style="color:var(--tx)">14%</strong> under New Regime</li>
+  </ul>
+
+  <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin:16px 0 10px">New Regime vs Old Regime — When is Old Regime better?</h3>
+  <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">
+    <thead><tr style="background:var(--s3)"><th style="padding:9px 12px;text-align:left;color:var(--m);border-bottom:1px solid var(--b1)">Annual Income</th><th style="padding:9px 12px;text-align:left;color:var(--m);border-bottom:1px solid var(--b1)">Break-even deduction</th><th style="padding:9px 12px;text-align:left;color:var(--m);border-bottom:1px solid var(--b1)">Recommendation</th></tr></thead>
+    <tbody>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--tx)">Up to ₹12 lakh</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--m)">—</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--g)">New Regime always (zero tax)</td></tr>
+      <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--tx)">₹12L – ₹15L</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--m)">₹3.75 lakh+</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--a)">Compare both — use calculator above</td></tr>
+      <tr><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--tx)">₹15L – ₹25L</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--m)">₹4.25 lakh+</td><td style="padding:8px 12px;border-bottom:1px solid var(--b1);color:var(--a)">Old regime if deductions are high</td></tr>
+      <tr><td style="padding:8px 12px;color:var(--tx)">Above ₹25L</td><td style="padding:8px 12px;color:var(--m)">₹5.00 lakh+</td><td style="padding:8px 12px;color:var(--a)">Old regime if 80C + HRA + 80D maxed</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:600;margin:18px 0 10px">Top tax-saving investments (Section 80C)</h3>
+  <ul style="font-size:14px;color:var(--m);line-height:1.9;padding-left:20px">
+    <li><strong style="color:var(--tx)">ELSS mutual funds</strong> — highest returns, 3-year lock-in (recommended)</li>
+    <li><strong style="color:var(--tx)">PPF</strong> — 7.1% p.a., 15-year lock-in, fully tax-free maturity</li>
+    <li><strong style="color:var(--tx)">EPF/VPF</strong> — 8.25% p.a., employer-matched, tax-free</li>
+    <li><strong style="color:var(--tx)">NSC</strong> — 7.7% p.a., 5-year lock-in</li>
+    <li><strong style="color:var(--tx)">Life insurance premiums</strong> — traditional plans + term insurance</li>
+    <li><strong style="color:var(--tx)">Home loan principal repayment</strong> — qualifies for 80C deduction</li>
+  </ul>
+
+  <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+    <a href="pf-epf-calculator.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--s3);border:1px solid var(--b1);border-radius:var(--rad);text-decoration:none;font-size:13px;color:var(--vl)">🏛️ Calculate your EPF savings →</a>
+    <a href="sip-mutual-fund-calculator.html" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:var(--s3);border:1px solid var(--b1);border-radius:var(--rad);text-decoration:none;font-size:13px;color:var(--vl)">📈 Calculate ELSS SIP returns →</a>
+  </div>
+</section>
 </body>
 </html>
